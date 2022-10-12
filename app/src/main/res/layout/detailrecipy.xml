@@ -78,16 +78,16 @@
         android:orientation="vertical"
         android:background="@drawable/line">
 
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        <ScrollView
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent">
 
             <TextView
+                android:id="@+id/food_recipy"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/food_recipy"
-                android:text=""
-                android:layout_margin="10dp" />
+                android:layout_margin="10dp"
+                android:text="" />
         </ScrollView>
 
 
