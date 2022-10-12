@@ -7,10 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnRecipy, btnIce;       //레시피 , 냉장버튼
     boolean isItIce = false;        //냉동|냉장 구분
+    List<Food> foodlist = new LinkedList<Food>();  //링크드 리스트 선언
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

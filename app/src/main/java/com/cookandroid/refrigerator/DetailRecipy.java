@@ -47,5 +47,7 @@ public class DetailRecipy extends Activity {
         food_recipy.setText(recipy);
 
 
+
+
     }
 }
