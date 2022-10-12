@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Recipy extends Activity {
 
     Button btnReturn;       //레시피 창 돌아가기 버튼
@@ -15,6 +18,8 @@ public class Recipy extends Activity {
     String summary;
     String need;
     String recipy;
+    List<RecipyInfo> recipylist = new LinkedList<RecipyInfo>();  //링크드 리스트 선언
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,7 @@ public class Recipy extends Activity {
                 intent.putExtra("Recipy", recipy);
                 startActivity(intent);
             }
+
         });
     }
 }
