@@ -28,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
         btnIce = (Button)findViewById(R.id.btnIce);
         btnFood = (Button)findViewById(R.id.btnFood);
 
+        IceFragment fragice = new IceFragment();
+        CoolFragment fragcool = new CoolFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.frame_layout, fragice);
+        fragmentTransaction.addToBackStack("fragice");
+        fragmentTransaction.commit();
+
 
         date = "2022 - 10 - 10";
         name ="김치";
@@ -53,13 +60,31 @@ public class MainActivity extends AppCompatActivity {
 
                     //fragment 출력
 
+                        Bundle data = new Bundle();
+                        data.putString("Check", "ice");
+
+                        IceFragment fragIce = new IceFragment();
+                        fragIce.setArguments(data);
+
+                        FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction1.replace(R.id.frame_layout, fragIce);
+                        fragmentTransaction1.commit();
+
 
                 }
                 else{
                     //냉장실 출력
                     isItIce = true;
                     //fragment 출력
+                    Bundle data = new Bundle();
+                    data.putString("Check", "noice");
 
+                    CoolFragment fragCool = new CoolFragment();
+                    fragCool.setArguments(data);
+
+                    FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction2.replace(R.id.frame_layout, fragCool);
+                    fragmentTransaction2.commit();
 
                 }
 
