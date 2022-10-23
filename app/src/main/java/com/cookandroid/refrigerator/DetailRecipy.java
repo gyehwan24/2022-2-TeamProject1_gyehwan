@@ -12,26 +12,29 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 
 public class DetailRecipy extends Activity {
 
-    TextView food_name, food_summary, food_need, food_recipy;
-    ImageView food_image;
-    YouTubePlayerView food_video;
+    TextView recipy_name, recipy_summary, recipy_need, recipy_recipy;
+    ImageView recipy_image;
+    YouTubePlayerView recipy_video;
     String name;
     String summary;
     String need;
     String recipy;
     String video;
+    int image;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailrecipy);
 
-        food_image = (ImageView)findViewById(R.id.food_image);
-        food_name = (TextView)findViewById(R.id.food_name);
-        food_summary = (TextView)findViewById(R.id.food_summary);
-        food_need = (TextView)findViewById(R.id.food_need);
-        food_recipy = (TextView)findViewById(R.id.food_recipy);
-        food_video = (YouTubePlayerView)findViewById(R.id.food_video);
+        recipy_image = (ImageView)findViewById(R.id.recipy_image);
+        recipy_name = (TextView)findViewById(R.id.recipy_name);
+        recipy_summary = (TextView)findViewById(R.id.recipy_summary);
+        recipy_need = (TextView)findViewById(R.id.recipy_need);
+        recipy_recipy = (TextView)findViewById(R.id.recipy_recipy);
+        recipy_video = (YouTubePlayerView)findViewById(R.id.recipy_video);
 
         Intent rxIntent = getIntent();
         Bundle extras = rxIntent.getExtras();
@@ -41,13 +44,16 @@ public class DetailRecipy extends Activity {
         need = extras.getString("Need");
         recipy = extras.getString("Recipy");
 
-        food_name.setText(name);
-        food_summary.setText(summary);
-        food_need.setText(need);
-        food_recipy.setText(recipy);
+        recipy_name.setText(name);
+        recipy_summary.setText(summary);
+        recipy_need.setText(need);
+        recipy_recipy.setText(recipy);
 
+        image = R.drawable.apple;
 
-
+        recipy_image.setImageResource(image);
+        video = "qWbHSOplcvY";
+        //동영상 주소 변경 구현 필요
 
     }
 }
