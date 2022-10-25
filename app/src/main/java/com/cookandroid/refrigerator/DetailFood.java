@@ -28,6 +28,8 @@ public class DetailFood extends Activity {
         food_date = (TextView)findViewById(R.id.food_date);
         food_storagy = (TextView)findViewById(R.id.food_storagy);
 
+        //데이터 입력 못받으면 avd오류
+        /*
         Intent rxIntent = getIntent();
         Bundle extras = rxIntent.getExtras();
 
@@ -40,6 +42,6 @@ public class DetailFood extends Activity {
         food_date.setText(date);
         food_storagy.setText(storagy);
         food_image.setImageResource(image);
-
+        */
     }
 }

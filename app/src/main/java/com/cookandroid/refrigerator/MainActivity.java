@@ -4,16 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnRecipy, btnIce, btnFood;       //레시피 , 냉장버튼
+    ImageButton btnRecipy;
+    Button  btnIce;       //레시피 , 냉장버튼
     boolean isItIce = false;        //냉동|냉장 구분
     List<Food> foodlist = new LinkedList<Food>();  //링크드 리스트 선언
     String name;
@@ -24,9 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnRecipy = (Button)findViewById(R.id.btnRecipy);
+        btnRecipy = (ImageButton)findViewById(R.id.btnRecipy);
         btnIce = (Button)findViewById(R.id.btnIce);
-        btnFood = (Button)findViewById(R.id.btnFood);
 
         IceFragment fragice = new IceFragment();
         CoolFragment fragcool = new CoolFragment();
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         date = "2022 - 10 - 10";
         name ="김치";
         storagy = "보관법 : 1 어쩌구 2 저쩌구";
+
 
 
         //레시피 버튼 기능 구현
@@ -91,16 +95,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnFood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(getApplicationContext(), DetailFood.class);
-                intent2.putExtra("Name", name);
-                intent2.putExtra("Date", date);
-                intent2.putExtra("Storagy", storagy);
-                startActivity(intent2);
-            }
-        });
 
     }
 
