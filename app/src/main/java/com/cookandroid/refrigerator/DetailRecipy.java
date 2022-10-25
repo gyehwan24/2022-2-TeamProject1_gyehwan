@@ -55,5 +55,12 @@ public class DetailRecipy extends Activity {
         video = "qWbHSOplcvY";
         //동영상 주소 변경 구현 필요
 
+        //유튜브 링크
+        /*
+        startActivity(new Intent(Intent.ACTION_VIEW)
+            .setData(Uri.parse("youtube_url"))
+            .setPackage("com.google.android.youtube"));
+         */
+
     }
 }

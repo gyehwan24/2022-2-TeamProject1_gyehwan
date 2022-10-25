@@ -8,8 +8,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,9 +19,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     ImageButton btnRecipy;
-    Button  btnIce;       //레시피 , 냉장버튼
-    boolean isItIce = false;        //냉동|냉장 구분
-    List<Food> foodlist = new LinkedList<Food>();  //링크드 리스트 선언
+    Switch btnIce;                               //레시피 , 냉장버튼
+    boolean isItCool = true;                      //냉동|냉장 구분
+    List<Food> foodlist = new LinkedList<Food>();    //링크드 리스트 선언
     String name;
     String storagy;
     String date;
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnRecipy = (ImageButton)findViewById(R.id.btnRecipy);
-        btnIce = (Button)findViewById(R.id.btnIce);
+        btnIce = (Switch) findViewById(R.id.btnIce);
 
         IceFragment fragice = new IceFragment();
         CoolFragment fragcool = new CoolFragment();
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
 
-        date = "2022 - 10 - 10";
+        date = "2022-10-10";
         name ="김치";
         storagy = "보관법 : 1 어쩌구 2 저쩌구";
 
@@ -55,30 +57,58 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //냉장버튼 기능 구현
+        btnIce.setText("냉장 ");
+        Bundle data = new Bundle();
+        data.putString("Check", "noice");
+
+        CoolFragment fragCool = new CoolFragment();
+        fragCool.setArguments(data);
+
+        FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction2.replace(R.id.frame_layout, fragCool);
+        fragmentTransaction2.commit();
+
+
+        btnIce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    //냉동
+                    btnIce.setText("냉동 ");
+                    Bundle data = new Bundle();
+                    data.putString("Check", "ice");
+
+                    IceFragment fragIce = new IceFragment();
+                    fragIce.setArguments(data);
+
+                    FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction1.replace(R.id.frame_layout, fragIce);
+                    fragmentTransaction1.commit();
+                }
+                else{
+                    //냉장
+                    btnIce.setText("냉장 ");
+                    Bundle data = new Bundle();
+                    data.putString("Check", "noice");
+
+                    CoolFragment fragCool = new CoolFragment();
+                    fragCool.setArguments(data);
+
+                    FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction2.replace(R.id.frame_layout, fragCool);
+                    fragmentTransaction2.commit();
+                }
+            }
+        });
+
+        /*
         btnIce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isItIce){
-                    //냉동실 출력
-                    isItIce = false;
+                if(isItCool){
 
-                    //fragment 출력
-
-                        Bundle data = new Bundle();
-                        data.putString("Check", "ice");
-
-                        IceFragment fragIce = new IceFragment();
-                        fragIce.setArguments(data);
-
-                        FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction1.replace(R.id.frame_layout, fragIce);
-                        fragmentTransaction1.commit();
-
-
-                }
-                else{
                     //냉장실 출력
-                    isItIce = true;
+                    isItCool = false;
                     //fragment 출력
                     Bundle data = new Bundle();
                     data.putString("Check", "noice");
@@ -91,9 +121,29 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction2.commit();
 
                 }
+                else{
+                    //냉동실 출력
+                    isItCool = true;
+
+                    //fragment 출력
+
+                    //데이터 이동 수단
+                    Bundle data = new Bundle();
+                    data.putString("Check", "ice");
+
+                    IceFragment fragIce = new IceFragment();
+                    fragIce.setArguments(data);
+
+                    FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction1.replace(R.id.frame_layout, fragIce);
+                    fragmentTransaction1.commit();
+
+                }
 
             }
         });
+
+         */
 
 
     }

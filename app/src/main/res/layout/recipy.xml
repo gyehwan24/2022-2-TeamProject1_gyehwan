@@ -5,24 +5,120 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="8"
     tools:context=".MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnReturn"
-        android:text="돌아가기">
+    //button
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="2"
+        android:background="@drawable/line"
+        android:padding="5dp"
+        android:layout_gravity=""
+        android:orientation="vertical" >
 
-    </Button>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="end"
+            android:layout_weight="1" >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="     최근에 본 페이지     "
+                android:background="@drawable/button_blue"
+                android:layout_margin="5dp"
+                android:id="@+id/btnrecent" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnDetail"
-        android:text="레시피">
 
-    </Button>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="6"
+            android:orientation="horizontal" >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="한식"
+                android:layout_margin="5dp"
+                android:background="@drawable/button"
+
+                android:id="@+id/btnkorea" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="중식"
+                android:background="@drawable/button"
+                android:layout_margin="5dp"
+                android:id="@+id/btnchina" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="양식"
+                android:background="@drawable/button"
+                android:layout_margin="5dp"
+                android:id="@+id/btnwest" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="일식"
+                android:background="@drawable/button"
+                android:layout_margin="5dp"
+                android:id="@+id/btnjapan" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="분식"
+                android:background="@drawable/button"
+                android:layout_margin="5dp"
+                android:id="@+id/btnboon" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="기타"
+                android:background="@drawable/button"
+                android:layout_margin="5dp"
+                android:id="@+id/btnetc" />
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    //list view
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
 
 
 </LinearLayout>

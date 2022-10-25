@@ -14,6 +14,7 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:layout_weight="1"
+        android:gravity="center"
         android:background="#ADD8E6"
         android:padding="20dp">
 
@@ -24,17 +25,21 @@
             android:layout_marginLeft="20dp"
             android:id="@+id/btnRecipy"
             android:src="@drawable/recipybook"
+            android:padding="20dp"
             android:text="레시피">
 
         </ImageButton>
 
-        <Button
+        <Switch
             android:id="@+id/btnIce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="냉장 | 냉동">
+            android:text="냉장 "
+            android:textOff="냉장 "
+            android:padding="20dp"
+            android:textOn="냉동 " >
 
-        </Button>
+        </Switch>
 
     </LinearLayout>
 
