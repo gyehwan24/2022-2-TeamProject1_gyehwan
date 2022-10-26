@@ -88,7 +88,6 @@ public class Recipy extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), DetailRecipy.class);
                 intent.putExtra("Name", name);
-                intent.putExtra("Summary", summary);
                 intent.putExtra("Need", need);
                 intent.putExtra("Recipy", recipy);
                 startActivity(intent);
