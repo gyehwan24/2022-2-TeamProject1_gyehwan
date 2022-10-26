@@ -21,6 +21,7 @@ public class Recipy extends Activity {
     Integer[] btn = { R.id.btnkorea, R.id.btnchina, R.id.btnwest, R.id.btnjapan, R.id.btnboon, R.id.btnetc};
 
     ListView list;
+    ListAdapter adapter;
 
     String name;
     String summary;
@@ -53,12 +54,24 @@ public class Recipy extends Activity {
                 "ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ";
 
         //동적 추가 위한 리스트 -> 메인 리스트와 타입 맞춘 후  메인 리스트에 추가
+        /*
         final ArrayList<String> midlist = new ArrayList<String>();
         final String[] item = {" item"," item"," item"," item"," item"," item"," item"," item"," item"," item"," item"," item"," item"," item"," item",};
 
+
+         */
+        adapter = new ListAdapter();
+        //adapter 에 리스트 추가 <-밑의 버튼 리스너에 각각 지정 (어떤 객체를 지정할지는 미리 설정)
+        adapter.addItem(new ListItem(R.drawable.apple, "음식이름"));
+        adapter.addItem(new ListItem(R.drawable.apple, "음식이름"));
+        adapter.addItem(new ListItem(R.drawable.apple, "음식이름"));
+        adapter.addItem(new ListItem(R.drawable.apple, "음식이름"));
+
+        list.setAdapter(adapter);
+        /*
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, item);
         list.setAdapter(adapter);
-
+         */
         //리스트 동적 추가
         /*midlist.add(type);
           adapter.notifyDataSetChanged(); //반영
