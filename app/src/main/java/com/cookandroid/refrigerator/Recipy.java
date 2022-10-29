@@ -190,8 +190,8 @@ public class Recipy extends Activity {
                         }
 
                         list.setAdapter(adapter);
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
                         templist = (ArrayList<RecipyInfo>) sublist.clone();
+                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
 
 
 
@@ -220,8 +220,8 @@ public class Recipy extends Activity {
                         }
 
                         list.setAdapter(adapter);
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
                         templist = (ArrayList<RecipyInfo>) sublist.clone();
+                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
 
 
 
@@ -249,8 +249,8 @@ public class Recipy extends Activity {
                         }
 
                         list.setAdapter(adapter);
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
                         templist = (ArrayList<RecipyInfo>) sublist.clone();
+                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
 
 
 
@@ -278,8 +278,8 @@ public class Recipy extends Activity {
                         }
 
                         list.setAdapter(adapter);
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
                         templist = (ArrayList<RecipyInfo>) sublist.clone();
+                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
 
 
 
@@ -306,8 +306,8 @@ public class Recipy extends Activity {
                         }
 
                         list.setAdapter(adapter);
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
                         templist = (ArrayList<RecipyInfo>) sublist.clone();
+                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
 
 
                         break;
@@ -321,19 +321,20 @@ public class Recipy extends Activity {
                         Korea.setBackgroundResource(R.drawable.button);
                         recipylist.clear();
                         adapter.clear();
-                        recipylist = (ArrayList<RecipyInfo>)findCategory(templist, "기타").clone();
-                        size = recipylist.size();
                         if(!All){
                             templist.clear();
                             templist = (ArrayList<RecipyInfo>) mainlist.clone();
                         }
+                        recipylist = (ArrayList<RecipyInfo>)findCategory(templist, "기타").clone();
+                        size = recipylist.size();
+
                         for(int i = 0; i < size; i++){
                             adapter.addItem(new ListItem(recipylist.get(i)));
                         }
 
                         list.setAdapter(adapter);
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
                         templist = (ArrayList<RecipyInfo>) sublist.clone();
+                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
 
 
                         break;

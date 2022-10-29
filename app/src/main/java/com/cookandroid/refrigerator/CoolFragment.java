@@ -22,32 +22,11 @@ public class CoolFragment extends Fragment {
     Context ct;
 
     ArrayList<Food> foodArrayList = new ArrayList<>();
-    //그리드 뷰
-    /*
-    Integer[] ImageID = {
-            R.drawable.apple, R.drawable.button, R.drawable.button_blue,
-            R.drawable.img4, R.drawable.img5, R.drawable.img6,
-            R.drawable.img5, R.drawable.img5, R.drawable.img5,
-            R.drawable.img5, R.drawable.img5, R.drawable.img5,
-            R.drawable.img5, R.drawable.img5, R.drawable.img5,
-            R.drawable.img5, R.drawable.img5, R.drawable.img5,
-            R.drawable.img5, R.drawable.img5, R.drawable.img5,
-            R.drawable.img5, R.drawable.img5, R.drawable.img5,
-            R.drawable.img5, R.drawable.img5, R.drawable.img5,
-            R.drawable.img5, R.drawable.img5, R.drawable.img5,
-            R.drawable.img5, R.drawable.img5, R.drawable.img5,
-            R.drawable.img5, R.drawable.img5, R.drawable.img5
-    };
-
-     */
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
-        //그리드 뷰
-
 
     }
 
@@ -82,7 +61,6 @@ public class CoolFragment extends Fragment {
                     intent.putExtra("Name", foodArrayList.get(position).getName());
                     intent.putExtra("Date", foodArrayList.get(position).getExpiration_date());
                     intent.putExtra("Storagy", foodArrayList.get(position).getStorage());
-
                     startActivity(intent);
                 }
             });

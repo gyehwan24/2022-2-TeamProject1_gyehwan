@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Refrigerator">
+        <activity android:name=".SplashActivity" android:label="splash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -20,6 +28,7 @@
         <activity android:name=".Recipy" android:label="레시피 목록" />
         <activity android:name=".DetailRecipy" android:label="레시피 상세" />
         <activity android:name=".DetailFood" android:label="식재료 상세" />
+
     </application>
 
 </manifest>

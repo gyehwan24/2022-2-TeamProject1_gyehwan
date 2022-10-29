@@ -16,9 +16,12 @@ import android.widget.Switch;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -30,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
     ImageButton btnRecipy;
     ImageButton btnMerge;
     Switch btnIce;                               //레시피 , 냉장버튼
+    ImageView btnunion;
     int isItDDay = 0;                    //0 기본, 1 유통기한,2 입고날짜
+    int size = 0;
 
     int isItIce = 0;            //0 냉장, 1 냉동
 
@@ -40,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<RecipyInfo> sendlist = new ArrayList<>();     //recipy send  (total -> can)
     ArrayList<Food> foodlistDDaySort = new ArrayList<>();
     ArrayList<Food> foodlistDateSort = new ArrayList<>();
+    ArrayList<Food> icelist = new ArrayList<>();
+    ArrayList<Food> coollist = new ArrayList<>();
+
 
 
 
@@ -686,6 +694,7 @@ public class MainActivity extends AppCompatActivity {
         btnRecipy = (ImageButton)findViewById(R.id.btnRecipy);
         btnIce = (Switch) findViewById(R.id.btnIce);
         btnMerge = (ImageButton)findViewById(R.id.btnMerge);
+        btnunion = (ImageView)findViewById(R.id.union);
 
         IceFragment fragice = new IceFragment();
         CoolFragment fragcool = new CoolFragment();
@@ -740,17 +749,16 @@ public class MainActivity extends AppCompatActivity {
         foodlist.add(bacon);
         foodlist.add(soybeanPaste);
 
+        size = foodlist.size();
+        for(int i = 0; i < size;i++){
+            if(foodlist.get(i).getCool() == 0){
+                coollist.add(foodlist.get(i));
+            }
+            else{
+                icelist.add(foodlist.get(i));
 
-
-
-
-
-
-
-
-
-
-
+            }
+        }
 
 
 
@@ -796,7 +804,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        if(notifyExpirationDate(foodlist)){
+            btnunion.setImageResource(R.drawable.union);
+        }
 
         //레시피 버튼 기능 구현
         btnRecipy.setOnClickListener(new View.OnClickListener() {
@@ -810,12 +820,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //냉장버튼 기능 구현
-        btnIce.setText("냉장 ");
-
 
         CoolFragment fragCool = new CoolFragment();
         Bundle data = new Bundle();
-        data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) foodlist);
+        data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) coollist);
         fragCool.setArguments(data);
 
         FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
@@ -829,9 +837,8 @@ public class MainActivity extends AppCompatActivity {
                 if(b){
                     //냉동
                     isItIce = 1;
-                    btnIce.setText("냉동 ");
                     Bundle data = new Bundle();
-                    data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) foodlist);
+                    data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) icelist);
 
                     IceFragment fragIce = new IceFragment();
                     fragIce.setArguments(data);
@@ -843,9 +850,8 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     //냉장
                     isItIce = 0;
-                    btnIce.setText("냉장 ");
                     Bundle data = new Bundle();
-                    data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) foodlist);
+                    data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) coollist);
 
                     CoolFragment fragCool = new CoolFragment();
                     fragCool.setArguments(data);
@@ -866,7 +872,15 @@ public class MainActivity extends AppCompatActivity {
 
                     //setText "유통기한
                     foodlistDDaySort.clear();
-                    foodlistDDaySort = (ArrayList<Food>)foodlist.clone();
+                    if(isItIce == 0){
+                        foodlistDDaySort = (ArrayList<Food>)coollist.clone();
+
+                    }
+                    else{
+                        foodlistDDaySort = (ArrayList<Food>)icelist.clone();
+
+                    }
+
 
                     mergeSort(foodlistDDaySort,0,foodlistDDaySort.size()-1);
                     Bundle data = new Bundle();
@@ -891,10 +905,24 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 else if(isItDDay == 1) {
+                    //입고 정렬
                     isItDDay = 2;
 
+                    foodlistDateSort.clear();
+                    if(isItIce == 0){
+                        foodlistDateSort = (ArrayList<Food>)coollist.clone();
+
+                    }
+                    else{
+                        foodlistDateSort = (ArrayList<Food>)icelist.clone();
+
+                    }
+
+
+                    StringmergeSort(foodlistDateSort,0,foodlistDateSort.size()-1);
                     Bundle data = new Bundle();
-                    data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) foodlist);
+                    data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) foodlistDateSort);
+
                     if(isItIce == 0){
                         CoolFragment fragCool = new CoolFragment();
                         fragCool.setArguments(data);
@@ -919,7 +947,14 @@ public class MainActivity extends AppCompatActivity {
 
                     //setText 유통기한
                     foodlistDDaySort.clear();
-                    foodlistDDaySort = (ArrayList<Food>)foodlist.clone();
+                    if(isItIce == 0){
+                        foodlistDDaySort = (ArrayList<Food>)coollist.clone();
+
+                    }
+                    else{
+                        foodlistDDaySort = (ArrayList<Food>)icelist.clone();
+
+                    }
 
                     mergeSort(foodlistDDaySort,0,foodlistDDaySort.size()-1);
                     Bundle data = new Bundle();
@@ -947,49 +982,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        btnIce.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(isItCool){
-
-                    //냉장실 출력
-                    isItCool = false;
-                    //fragment 출력
-                    Bundle data = new Bundle();
-                    data.putString("Check", "noice");
-
-                    CoolFragment fragCool = new CoolFragment();
-                    fragCool.setArguments(data);
-
-                    FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction2.replace(R.id.frame_layout, fragCool);
-                    fragmentTransaction2.commit();
-
-                }
-                else{
-                    //냉동실 출력
-                    isItCool = true;
-
-                    //fragment 출력
-
-                    //데이터 이동 수단
-                    Bundle data = new Bundle();
-                    data.putString("Check", "ice");
-
-                    IceFragment fragIce = new IceFragment();
-                    fragIce.setArguments(data);
-
-                    FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction1.replace(R.id.frame_layout, fragIce);
-                    fragmentTransaction1.commit();
-
-                }
-
-            }
-        });
-
-         */
 
 
     }
@@ -1108,6 +1100,96 @@ public class MainActivity extends AppCompatActivity {
             mergeSort(list, mid + 1, end);
             merge(list, start, mid, end);
         }
+    }
+
+    public static final void StringmergeSort(@NotNull ArrayList<Food> list, int start, int end) {
+        Intrinsics.checkNotNullParameter(list, "list");
+        if (start < end) {
+            int mid = (start + end) / 2;
+            mergeSort(list, start, mid);
+            mergeSort(list, mid + 1, end);
+            Stringmerge(list, start, mid, end);
+        }
+    }
+
+    public boolean notifyExpirationDate(ArrayList<Food> list){
+        boolean needNotify = false;
+        for(int i = 0; i < list.size(); i++){
+            if(list.get(i).getExpirationDDay() <= 3){
+                needNotify = true;
+            }
+        }
+        return needNotify;
+    }
+
+    public static int changeInt(String expiration_date)  {
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date expi = null;
+        try {
+            expi = sf.parse(expiration_date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        long day = expi.getTime()/ (60*60*24*1000);
+        return (int) day;
+
+    }
+
+    public static final void Stringmerge(@NotNull ArrayList<Food> list, int start, int mid, int end) {
+        Intrinsics.checkNotNullParameter(list, "list");
+        ArrayList<Food> sortedList = new ArrayList<>();
+        int indexA = start;
+        int indexB = mid + 1;
+
+        while(indexA <= mid && indexB <= end) {
+            if ( changeInt(((Food)list.get(indexA)).getInput_date()) > changeInt(((Food)list.get(indexB)).getInput_date()) ) {
+                sortedList.add(list.get(indexA));
+                ++indexA;
+            } else {
+                sortedList.add(list.get(indexB));
+                ++indexB;
+            }
+        }
+
+        int x;
+        int var8;
+        if (indexA > mid) {
+            x = indexB;
+            var8 = end;
+            if (indexB <= end) {
+                while(true) {
+                    sortedList.add(list.get(x));
+                    if (x == var8) {
+                        break;
+                    }
+
+                    ++x;
+                }
+            }
+        }
+
+        if (indexB > end) {
+            x = indexA;
+            var8 = mid;
+            if (indexA <= mid) {
+                while(true) {
+                    sortedList.add(list.get(x));
+                    if (x == var8) {
+                        break;
+                    }
+
+                    ++x;
+                }
+            }
+        }
+
+        x = 0;
+
+        for(var8 = ((Collection)sortedList).size(); x < var8; ++x) {
+            list.set(start + x, sortedList.get(x));
+        }
+
     }
 
 }

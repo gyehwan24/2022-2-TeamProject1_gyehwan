@@ -23,7 +23,8 @@ public class DetailRecipy extends Activity {
     String recipy;
     String video;
     int image;
-
+    int size;
+    int i;
 
 
     @Override
@@ -56,18 +57,29 @@ public class DetailRecipy extends Activity {
         name = recipyInfo.getName() ;
         recipy = recipyInfo.getDesc();
         image = recipyInfo.getPicture();
-        need = "";
-
+        need = "필수 재료 : ";
+        size = recipyInfo.getEssentialIngredients().size()-1;
+        i = 0;
+        while( i < size){
+            need = need + recipyInfo.getEssentialIngredients().get(i)+", ";
+            i++;
+        }
+        need = need + recipyInfo.getEssentialIngredients().get(i)+"\n\n";
+        need = need + "추가 재료 : ";
+        size = recipyInfo.getAdditionalIngredients().size()-1;
+        i = 0;
+        while( i < size ){
+            need = need + recipyInfo.additionalIngredients.get(i)+", ";
+            i++;
+        }
+        need = need + recipyInfo.getAdditionalIngredients().get(i);
+        video = recipyInfo.getYoutubeLink();
         recipy_name.setText(name);
         recipy_recipy.setText(recipy);
         recipy_need.setText(need);
         recipy_image.setImageResource(image);
         recipy_video.setImageResource(R.drawable.youtube);
 
-        video = "https://youtube.com/watch?v=qWbHSOplcvY";
-        String youtuberesource = "qWbHSOplcvY";
-        String videoimage = "https://img.youtube.com/vi/"+youtuberesource+"/0.jpg";
-        String videopath = "https://youtube.com/watch?v=" + youtuberesource;
 
         //동영상 주소 변경 구현 필요
 
