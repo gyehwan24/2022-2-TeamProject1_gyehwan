@@ -2,6 +2,7 @@ package com.cookandroid.refrigerator;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -38,26 +39,43 @@ public class DetailRecipy extends Activity {
 
         Intent rxIntent = getIntent();
         Bundle extras = rxIntent.getExtras();
+        RecipyInfo recipyInfo;
 
+        recipyInfo = (RecipyInfo) rxIntent.getSerializableExtra("Object");
+
+        //need data -> image, name, need, recipy, youtube url
+        /*
         name = extras.getString("Name");
         need = extras.getString("Need");
         recipy = extras.getString("Recipy");
+        image = extras.getInt("Image");
+        //video = extras.getString("Video");
+
+
+         */
+        name = recipyInfo.getName() ;
+        recipy = recipyInfo.getDesc();
+        image = recipyInfo.getPicture();
+        need = "";
 
         recipy_name.setText(name);
-        recipy_need.setText(need);
         recipy_recipy.setText(recipy);
-
-        image = R.drawable.apple;
-
+        recipy_need.setText(need);
         recipy_image.setImageResource(image);
-        video = "qWbHSOplcvY";
+        recipy_video.setImageResource(R.drawable.youtube);
+
+        video = "https://youtube.com/watch?v=qWbHSOplcvY";
+        String youtuberesource = "qWbHSOplcvY";
+        String videoimage = "https://img.youtube.com/vi/"+youtuberesource+"/0.jpg";
+        String videopath = "https://youtube.com/watch?v=" + youtuberesource;
+
         //동영상 주소 변경 구현 필요
 
         recipy_video.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Intent.ACTION_VIEW)
-                        .setData(Uri.parse("https://youtube.com/watch?v=qWbHSOplcvY")).setPackage("com.google.android.youtube"));
+                        .setData(Uri.parse(video)).setPackage("com.google.android.youtube"));
             }
         });
         //유튜브 링크

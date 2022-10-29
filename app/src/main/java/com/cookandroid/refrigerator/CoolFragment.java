@@ -14,15 +14,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
 public class CoolFragment extends Fragment {
 
     //context controll
     Context ct;
-    String check;
 
+    ArrayList<Food> foodArrayList = new ArrayList<>();
     //그리드 뷰
+    /*
     Integer[] ImageID = {
-            R.drawable.img1, R.drawable.img2, R.drawable.img3,
+            R.drawable.apple, R.drawable.button, R.drawable.button_blue,
             R.drawable.img4, R.drawable.img5, R.drawable.img6,
             R.drawable.img5, R.drawable.img5, R.drawable.img5,
             R.drawable.img5, R.drawable.img5, R.drawable.img5,
@@ -36,18 +39,12 @@ public class CoolFragment extends Fragment {
             R.drawable.img5, R.drawable.img5, R.drawable.img5
     };
 
+     */
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
-        Bundle data = getArguments();
-        if( data != null ){
-            check = data.getString("Check");
-        }
-        else{
-            check = "none";
-        }
 
         //그리드 뷰
 
@@ -61,7 +58,7 @@ public class CoolFragment extends Fragment {
             context = c;
         }
         public int getCount(){
-            return ImageID.length;
+            return foodArrayList.toArray().length;
         }
         public Object getItem(int arg0){
             return null;
@@ -75,11 +72,17 @@ public class CoolFragment extends Fragment {
             imageview.setScaleType(ImageView.ScaleType.FIT_CENTER);
             imageview.setPadding(5, 5, 5, 5);
 
-            imageview.setImageResource(ImageID[position]);
+            imageview.setImageResource(foodArrayList.get(position).getImage());
             imageview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity().getApplicationContext(), DetailFood.class);
+                    //imageID[position] -> Foodlist[position].getPicture getName ...
+                    intent.putExtra("Image", foodArrayList.get(position).getImage());
+                    intent.putExtra("Name", foodArrayList.get(position).getName());
+                    intent.putExtra("Date", foodArrayList.get(position).getExpiration_date());
+                    intent.putExtra("Storagy", foodArrayList.get(position).getStorage());
+
                     startActivity(intent);
                 }
             });
@@ -91,6 +94,7 @@ public class CoolFragment extends Fragment {
     }
 
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -99,6 +103,15 @@ public class CoolFragment extends Fragment {
         //gridview, context
         final GridView gv = (GridView) v.findViewById(R.id.gridViewCool);
         ct = container.getContext();
+
+        Bundle data = getArguments();
+        if( data != null ){
+            foodArrayList = data.getParcelableArrayList("Food");
+        }
+        else{
+        }
+
+
         MyGridAdapter gAdapter = new MyGridAdapter(getActivity());
         gv.setAdapter(gAdapter);
 

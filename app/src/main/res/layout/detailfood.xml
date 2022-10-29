@@ -13,6 +13,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/food_image"
+            android:scaleType="centerInside"
+            android:layout_marginBottom="1dp"
             android:src="@color/teal_700"/>
 
     </LinearLayout>
@@ -27,6 +29,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/food_name"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="8dp"
             android:text="food_name" />
     </LinearLayout>
 
@@ -40,6 +47,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/food_date"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
             android:text="유통기한" />
 
 
@@ -54,6 +64,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/food_storagy"
+            android:layout_marginLeft="8dp"
+
             android:text="보관법" />
 
     </LinearLayout>

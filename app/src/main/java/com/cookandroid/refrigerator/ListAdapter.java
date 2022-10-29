@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class ListAdapter extends BaseAdapter{
     ArrayList<ListItem> items = new ArrayList<ListItem>();
     Context context;
+
+
     @Override
     public int getCount() {
         return items.size();
@@ -41,12 +43,14 @@ public class ListAdapter extends BaseAdapter{
         ImageView imageView = ConvertView.findViewById(R.id.list_item_image);
         TextView textView = ConvertView.findViewById(R.id.list_item_name);
 
-        imageView.setImageResource(listItem.getImage());
-        textView.setText(listItem.getName());
+        imageView.setImageResource(listItem.getRecipyInfo().picture);
+        textView.setText(listItem.getRecipyInfo().name);
 
         return ConvertView;
     }
     public void addItem(ListItem item){
         items.add(item);
     }
+    //초기화
+    public void clear(){ items.clear();}
 }
