@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,18 +43,35 @@ public class IceFragment extends Fragment {
             return foodArrayList.toArray().length;
         }
         public Object getItem(int arg0){
-            return null;
+            return foodArrayList.get(arg0);
         }
         public long getItemId(int arg0){
-            return 0;
+            return arg0;
         }
         public View getView(int position, View arg1, ViewGroup arg2){
-            ImageView imageview = new ImageView(context);
-            imageview.setLayoutParams(new ViewGroup.LayoutParams(200, 300));
-            imageview.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            imageview.setPadding(5, 5, 5, 5);
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            arg1 = inflater.inflate(R.layout.griditem, arg2, false);
+            ImageView imageview = arg1.findViewById(R.id.gridimage);
+            TextView textView = arg1.findViewById(R.id.gridname);
+            ImageView imageView2 = arg1.findViewById(R.id.gridlight);
+            imageview.setPadding(5,5,5,5);
+
+            textView.setText(foodArrayList.get(position).getName());
 
             imageview.setImageResource(foodArrayList.get(position).getImage());
+            if(foodArrayList.get(position).getExpiration_dday() == 0){
+                imageView2.setImageResource(R.drawable.gridball);
+            }
+            else if(foodArrayList.get(position).getExpiration_dday()*-1 <= 3){
+                imageView2.setImageResource(R.drawable.gridballrd);
+
+            }
+            else if(foodArrayList.get(position).getExpiration_dday()*-1 <= 5){
+                imageView2.setImageResource(R.drawable.gridbally);
+            }
+            else{
+                imageView2.setImageResource(R.drawable.gridballg);
+            }
             imageview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -69,7 +87,7 @@ public class IceFragment extends Fragment {
 
 
 
-            return imageview;
+            return arg1;
         }
     }
 

@@ -13,6 +13,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     ImageButton btnMerge;
     Switch btnIce;                               //레시피 , 냉장버튼
     ImageView btnunion;
+    TextView merge;
+    TextView cool;
     int isItDDay = 0;                    //0 기본, 1 유통기한,2 입고날짜
     int size = 0;
 
@@ -695,6 +698,8 @@ public class MainActivity extends AppCompatActivity {
         btnIce = (Switch) findViewById(R.id.btnIce);
         btnMerge = (ImageButton)findViewById(R.id.btnMerge);
         btnunion = (ImageView)findViewById(R.id.union);
+        cool = (TextView)findViewById(R.id.textice);
+        merge = (TextView)findViewById(R.id.textmerge);
 
         IceFragment fragice = new IceFragment();
         CoolFragment fragcool = new CoolFragment();
@@ -837,6 +842,8 @@ public class MainActivity extends AppCompatActivity {
                 if(b){
                     //냉동
                     isItIce = 1;
+                    cool.setText("냉동");
+                    merge.setText("기본");
                     Bundle data = new Bundle();
                     data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) icelist);
 
@@ -849,6 +856,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     //냉장
+                    cool.setText("냉장");
+                    merge.setText("기본");
                     isItIce = 0;
                     Bundle data = new Bundle();
                     data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) coollist);
@@ -869,6 +878,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(isItDDay == 0){ // basic out
                     isItDDay = 1;
+
+                    merge.setText("유통기한");
 
                     //setText "유통기한
                     foodlistDDaySort.clear();
@@ -906,6 +917,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(isItDDay == 1) {
                     //입고 정렬
+                    merge.setText("입고");
                     isItDDay = 2;
 
                     foodlistDateSort.clear();
@@ -945,6 +957,7 @@ public class MainActivity extends AppCompatActivity {
                 else{  //  date out
                     isItDDay = 1;
 
+                    merge.setText("유통기한");
                     //setText 유통기한
                     foodlistDDaySort.clear();
                     if(isItIce == 0){
@@ -1115,7 +1128,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean notifyExpirationDate(ArrayList<Food> list){
         boolean needNotify = false;
         for(int i = 0; i < list.size(); i++){
-            if(list.get(i).getExpirationDDay() <= 3){
+            if(list.get(i).getExpirationDDay()*-1 <= 3){
                 needNotify = true;
             }
         }
