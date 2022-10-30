@@ -175,6 +175,8 @@ public class Recipy extends Activity {
                         Etc.setBackgroundResource(R.drawable.button);
                         Korea.setBackgroundResource(R.drawable.button_push);
 
+                        templist = (ArrayList<RecipyInfo>) sublist.clone();
+                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
                         recipylist.clear();
                         adapter.clear();
                         if(!All){
@@ -190,8 +192,7 @@ public class Recipy extends Activity {
                         }
 
                         list.setAdapter(adapter);
-                        templist = (ArrayList<RecipyInfo>) sublist.clone();
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
+
 
 
 
@@ -205,13 +206,15 @@ public class Recipy extends Activity {
                         Boon.setBackgroundResource(R.drawable.button);
                         Etc.setBackgroundResource(R.drawable.button);
                         Korea.setBackgroundResource(R.drawable.button);
+                        templist = (ArrayList<RecipyInfo>) sublist.clone();
+                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
+                        recipylist.clear();
+                        adapter.clear();
                         if(!All){
                             templist.clear();
                             templist = (ArrayList<RecipyInfo>) mainlist.clone();
                         }
 
-                        recipylist.clear();
-                        adapter.clear();
                         recipylist = (ArrayList<RecipyInfo>)findCategory(templist, "중식").clone();
                         size = recipylist.size();
 
@@ -220,9 +223,6 @@ public class Recipy extends Activity {
                         }
 
                         list.setAdapter(adapter);
-                        templist = (ArrayList<RecipyInfo>) sublist.clone();
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
-
 
 
                         break;
@@ -235,12 +235,15 @@ public class Recipy extends Activity {
                         Etc.setBackgroundResource(R.drawable.button);
                         Korea.setBackgroundResource(R.drawable.button);
                         ListAdapter adapter2 = new ListAdapter();
+                        templist = (ArrayList<RecipyInfo>) sublist.clone();
+                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
+                        recipylist.clear();
+                        adapter.clear();
                         if(!All){
                             templist.clear();
                             templist = (ArrayList<RecipyInfo>) mainlist.clone();
                         }
-                        recipylist.clear();
-                        adapter.clear();
+
                         recipylist = (ArrayList<RecipyInfo>)findCategory(templist, "양식").clone();
                         size = recipylist.size();
 
@@ -249,8 +252,6 @@ public class Recipy extends Activity {
                         }
 
                         list.setAdapter(adapter);
-                        templist = (ArrayList<RecipyInfo>) sublist.clone();
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
 
 
 
@@ -264,6 +265,8 @@ public class Recipy extends Activity {
                         Etc.setBackgroundResource(R.drawable.button);
                         Korea.setBackgroundResource(R.drawable.button);
                         ListAdapter adapter3 = new ListAdapter();
+                        templist = (ArrayList<RecipyInfo>) sublist.clone();
+                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
                         if(!All){
                             templist.clear();
                             templist = (ArrayList<RecipyInfo>) mainlist.clone();
@@ -278,8 +281,6 @@ public class Recipy extends Activity {
                         }
 
                         list.setAdapter(adapter);
-                        templist = (ArrayList<RecipyInfo>) sublist.clone();
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
 
 
 
@@ -292,6 +293,7 @@ public class Recipy extends Activity {
                         Boon.setBackgroundResource(R.drawable.button_push);
                         Etc.setBackgroundResource(R.drawable.button);
                         Korea.setBackgroundResource(R.drawable.button);
+
                         if(!All){
                             templist.clear();
                             templist = (ArrayList<RecipyInfo>) mainlist.clone();
@@ -306,8 +308,6 @@ public class Recipy extends Activity {
                         }
 
                         list.setAdapter(adapter);
-                        templist = (ArrayList<RecipyInfo>) sublist.clone();
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
 
 
                         break;
@@ -319,6 +319,8 @@ public class Recipy extends Activity {
                         Boon.setBackgroundResource(R.drawable.button);
                         Etc.setBackgroundResource(R.drawable.button_push);
                         Korea.setBackgroundResource(R.drawable.button);
+                        templist = (ArrayList<RecipyInfo>) sublist.clone();
+                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
                         recipylist.clear();
                         adapter.clear();
                         if(!All){
@@ -333,8 +335,6 @@ public class Recipy extends Activity {
                         }
 
                         list.setAdapter(adapter);
-                        templist = (ArrayList<RecipyInfo>) sublist.clone();
-                        recipylist = (ArrayList<RecipyInfo>) templist.clone();
 
 
                         break;
