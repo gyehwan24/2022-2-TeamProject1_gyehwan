@@ -17,8 +17,10 @@
             android:id="@+id/recipy_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerInside"
+            android:scaleType="fitXY"
             android:layout_marginBottom="1dp"
+            android:background="#FFFFFF"
+
             android:src="@color/purple_200" />
 
 

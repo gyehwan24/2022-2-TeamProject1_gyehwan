@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
             "9. 프라이팬에 식용유를 두르고 달걀프라이를 한다.\n" +
 
-            "10. 완성 접시에 김치볶음밥, 달걀프라이를 올리고 깨소금과 김 가루를 곁들인다.\n", "https://youtu.be/eIo2BaE6LxI", "한식", new ArrayList<String>(Arrays.asList("김치", "대파")), new ArrayList<String>(Arrays.asList("소세지", "진간장", "달걀","김가루")), R.drawable.apple, R.drawable.button_blue);
+            "10. 완성 접시에 김치볶음밥, 달걀프라이를 올리고 깨소금과 김 가루를 곁들인다.\n", "https://youtu.be/eIo2BaE6LxI", "한식", new ArrayList<String>(Arrays.asList("김치", "대파")), new ArrayList<String>(Arrays.asList("소세지", "진간장", "달걀","김가루")), R.drawable.kimchifriri, R.drawable.youtube);
 
             RecipyInfo eggFriedRice = new RecipyInfo("계란볶음밥", "1. 대파는 송송 썰어 준비한다.\n" +
 
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
             "6. 밥이 골고루 섞이면 센 불에 올려 볶는다. \n" +
 
-            "7. 기호에 따라 MSG를 넣어 볶은 후 완성한다.\n", "https://youtu.be/kR77WlHRZrs","한식", new ArrayList<String>(Arrays.asList("대파","달걀")), new ArrayList<String>(Arrays.asList("간장","맛소금")), R.drawable.apple, R.drawable.button_blue);
+            "7. 기호에 따라 MSG를 넣어 볶은 후 완성한다.\n", "https://youtu.be/kR77WlHRZrs","한식", new ArrayList<String>(Arrays.asList("대파","달걀")), new ArrayList<String>(Arrays.asList("간장","맛소금")), R.drawable.eggfriri, R.drawable.youtube);
 
             RecipyInfo braisedMackerel = new RecipyInfo("고등어조림","1. 양파는 0.5cm 두께로 채 썰어 준비한다.\n" +
 
@@ -107,11 +107,11 @@ public class MainActivity extends AppCompatActivity {
 
             "8. 물, 양념장을 넣어 끓인다.\n" +
 
-            "9. 조림이 끓으면 중불로 줄여 10분 정도 끓인다.\n", "https://youtu.be/j9NXZh0gX3w", "한식", new ArrayList<String>(Arrays.asList("고등어","김치","양파")), new ArrayList<String>(Arrays.asList("청양고추","대파","고춧가루","다진마늘")), R.drawable.apple, R.drawable.button_blue);
+            "9. 조림이 끓으면 중불로 줄여 10분 정도 끓인다.\n", "https://youtu.be/j9NXZh0gX3w", "한식", new ArrayList<String>(Arrays.asList("고등어","김치","양파")), new ArrayList<String>(Arrays.asList("청양고추","대파","고춧가루","다진마늘")), R.drawable.braisedmacke, R.drawable.youtube);
 
             RecipyInfo bibimbap = new RecipyInfo("비빔밥", "1. 양파, 간장, 간마늘, 설탕, 소금, 고기, 물을 함께넣고 물기가 날라갈때까지 볶는다.\n" +
 
-            "2. 준비된 밥위에 준비된 양념장과 기호에 맞는 나물, 계란등을 올린다.\n", "https://youtu.be/altBUluOKZg", "한식", new ArrayList<String>(Arrays.asList("양파", "돼지고기", "양파")), new ArrayList<String>(Arrays.asList("다진마늘","간장","설탕","소금")), R.drawable.apple, R.drawable.button_blue);
+            "2. 준비된 밥위에 준비된 양념장과 기호에 맞는 나물, 계란등을 올린다.\n", "https://youtu.be/altBUluOKZg", "한식", new ArrayList<String>(Arrays.asList("양파", "돼지고기", "양파")), new ArrayList<String>(Arrays.asList("다진마늘","간장","설탕","소금")), R.drawable.bibimbap, R.drawable.youtube);
 
             RecipyInfo braisedPorkKimchi = new RecipyInfo("돼지김치찜","1. 설탕, 국간장, 된장, 간 마늘, 고춧가루를 섞어 양념장을 만든다.\n" +
 
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
             "8. 김치와 고기가 물러지면 간을 본 후 기호에 맞게 식초를 넣는다.\n" +
 
-            "9. 식초를 골고루 섞어 준 후 완성한다.\n", "https://youtu.be/RVfSeUZ8XkY","한식", new ArrayList<String>(Arrays.asList("돼지고기","김치")), new ArrayList<String>(Arrays.asList("양파","대파","청양고추","설탕","된장","간장","다진마늘","고춧가루")), R.drawable.apple, R.drawable.button_blue);
+            "9. 식초를 골고루 섞어 준 후 완성한다.\n", "https://youtu.be/RVfSeUZ8XkY","한식", new ArrayList<String>(Arrays.asList("돼지고기","김치")), new ArrayList<String>(Arrays.asList("양파","대파","청양고추","설탕","된장","간장","다진마늘","고춧가루")), R.drawable.braiseporkkimchi, R.drawable.youtube);
 
             RecipyInfo bulgogi = new RecipyInfo("불고기", "1. 깊은 볼에 한입 크기로 자른 소고기를 넣고 잘 풀어서 준비한다.\n" +
 
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
             "  Tip: 기호에 따라 MSG 1/4큰술 정도를 넣어 볶는다.\n" +
 
-            "9. 완전히 익은 소불고기를 접시에 담고 통깨를 뿌려 완성한다.\n", "https://youtu.be/nVzwOOJLt24","한식", new ArrayList<String>(Arrays.asList("소고기", "양파", "대파")),new ArrayList<String>(Arrays.asList("다진마늘","설탕","물엿","간장","후추","참기름","표고버섯","홍고추")), R.drawable.apple, R.drawable.button_blue);
+            "9. 완전히 익은 소불고기를 접시에 담고 통깨를 뿌려 완성한다.\n", "https://youtu.be/nVzwOOJLt24","한식", new ArrayList<String>(Arrays.asList("소고기", "양파", "대파")),new ArrayList<String>(Arrays.asList("다진마늘","설탕","물엿","간장","후추","참기름","표고버섯","홍고추")), R.drawable.bulgogi, R.drawable.youtube);
 
             RecipyInfo grilledPork = new RecipyInfo("삼겹살구이", "1. 돼지고기 양면에 마이야르반응이 충분히 일어날때까지 굽는다.\n" +
 
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
             "2. 돼지고기를 먹기좋은 크기로 잘라준다.\n" +
 
-            "3. 잘린면도 모두 익을때까지 준비된 채소, 마늘과 함께 구워준다. \n", "https://youtu.be/reflTfKONLY", "한식", new ArrayList<String>(Arrays.asList("돼지고기")), new ArrayList<String>(Arrays.asList("양파", "대파","마늘")), R.drawable.apple, R.drawable.button_blue);
+            "3. 잘린면도 모두 익을때까지 준비된 채소, 마늘과 함께 구워준다. \n", "https://youtu.be/reflTfKONLY", "한식", new ArrayList<String>(Arrays.asList("돼지고기")), new ArrayList<String>(Arrays.asList("양파", "대파","마늘")), R.drawable.grilledpork, R.drawable.youtube);
 
 
 
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
             RecipyInfo dongpayuk = new RecipyInfo("동파육", "1. 돼지고기, 양파, 대파를 기름에 튀긴다.(같이 삶아주어도 됨) \n" +
 
-            "2. 간장, 캐러멜시럽, 올리고당, 설탕, 굴소스, 생강, 튀겨둔(삶아둔) 돼지고기를 함께 삶아준다.\n", "https://youtu.be/XCv408bG9uQ", "중식", new ArrayList<String>(Arrays.asList("돼지고기", "양파","대파","간장")), new ArrayList<String>(Arrays.asList("카라멜시럽","올리고당","설탕","굴소스","생강")), R.drawable.apple, R.drawable.button_blue);
+            "2. 간장, 캐러멜시럽, 올리고당, 설탕, 굴소스, 생강, 튀겨둔(삶아둔) 돼지고기를 함께 삶아준다.\n", "https://youtu.be/XCv408bG9uQ", "중식", new ArrayList<String>(Arrays.asList("돼지고기", "양파","대파","간장")), new ArrayList<String>(Arrays.asList("카라멜시럽","올리고당","설탕","굴소스","생강")), R.drawable.donapayuk, R.drawable.youtube);
 
             RecipyInfo mapatopu = new RecipyInfo("마파두부","1. 두부는 사방 1.5cm 정도로 깍둑썰기하여 준비한다.\n" +
 
@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
 
             "8. 참기름을 두르고 쪽파를 뿌려 완성한다.\n","https://youtu.be/BqxpjY7TJ8g","중식", new ArrayList<String>(Arrays.asList("두부","돼지고기")),
 
-            new ArrayList<String>(Arrays.asList("다진마늘","대파","전분가루","된장","참기름")), R.drawable.apple, R.drawable.button_blue);
+            new ArrayList<String>(Arrays.asList("다진마늘","대파","전분가루","된장","참기름")), R.drawable.mapatopu, R.drawable.youtube);
 
             RecipyInfo tangsuyuk = new RecipyInfo("탕수육", "1. 돈등심은 두께 1cm 정도 스틱 모양으로 썰어 준비한다.\n" +
 
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
 
             "9. 기름의 온도를 올려 기름을 뺀 고기를 넣고 30초~1분 정도 더 튀겨 완성한다.\n","https://youtu.be/WneiVYnZgHo","중식", new ArrayList<String>(Arrays.asList("돼지고기")),
 
-            new ArrayList<String>(Arrays.asList("튀김가루","마늘","진간장","후추","맛소금")), R.drawable.apple, R.drawable.button_blue);
+            new ArrayList<String>(Arrays.asList("튀김가루","마늘","진간장","후추","맛소금")), R.drawable.tangsuyuk, R.drawable.youtube);
 
             RecipyInfo jjambbong = new RecipyInfo("짬뽕","1. 대파 150g을 굵게 썰어 준비한다.\n" +
 
@@ -243,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
 
             "16. 완성 그릇에 담고 고명으로 송송 썬 대파를 곁들인다.\n", "https://youtu.be/YISYMu2Txp4","중식", new ArrayList<String>(Arrays.asList("돼지고기","양파","대파")),
 
-            new ArrayList<String>(Arrays.asList("양배추","고춧가루","진간장")), R.drawable.apple, R.drawable.button_blue);
+            new ArrayList<String>(Arrays.asList("양배추","고춧가루","진간장")), R.drawable.jjampong, R.drawable.youtube);
 
 
 
@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
 
             "3. 고기의 겉면에 마이야르반응이 충분히 나오도록 구워준다.\n" +
 
-            "* 여러번 뒤집어도 상관없음 \n", "https://youtu.be/thkD_x6_eaM", "양식", new ArrayList<String>(Arrays.asList("소고기")), new ArrayList<String>(Arrays.asList("올리브유","소금","호추","가니쉬용 채소")), R.drawable.apple, R.drawable.button_blue);
+            "* 여러번 뒤집어도 상관없음 \n", "https://youtu.be/thkD_x6_eaM", "양식", new ArrayList<String>(Arrays.asList("소고기")), new ArrayList<String>(Arrays.asList("올리브유","소금","호추","가니쉬용 채소")), R.drawable.steak, R.drawable.youtube);
 
             RecipyInfo vongolePasta = new RecipyInfo("봉골레파스타","1. 올리브유, 간마늘, 페페론치노, 소금을 팬에 넣고 달궈준다.\n" +
 
@@ -263,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
 
             "3. 맛술을 넣어준다.\n" +
 
-            "4. 파스타면을 넣고 면이 익을때까지 볶아준다.\n", "https://youtu.be/b4KtNiQBzU4", "양식", new ArrayList<String>(Arrays.asList("조개","파스타면")), new ArrayList<String>(Arrays.asList("올리브유","다진마늘","맛술","소금","페페론치노")), R.drawable.apple, R.drawable.button_blue);
+            "4. 파스타면을 넣고 면이 익을때까지 볶아준다.\n", "https://youtu.be/b4KtNiQBzU4", "양식", new ArrayList<String>(Arrays.asList("조개","파스타면")), new ArrayList<String>(Arrays.asList("올리브유","다진마늘","맛술","소금","페페론치노")), R.drawable.vongolepasta, R.drawable.youtube);
 
             RecipyInfo creamPasta = new RecipyInfo("크림파스타", "*면 삶기\n" +
 
@@ -303,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
 
             "Tip: 기호에 따라 우유를 추가해 소스를 더 만들어 사용한다.\n", "https://youtu.be/0bnFoRQebq0", "양식", new ArrayList<String>(Arrays.asList("베이컨","양파","우유")),
 
-            new ArrayList<String>(Arrays.asList("파스타면","올리브유","후추","치즈","파슬리","양송이 버섯","소금")), R.drawable.apple, R.drawable.button_blue);
+            new ArrayList<String>(Arrays.asList("파스타면","올리브유","후추","치즈","파슬리","양송이 버섯","소금")), R.drawable.creampasta, R.drawable.youtube);
 
             RecipyInfo gambas = new RecipyInfo("감바스","1. 바게트와 식빵을 먹기 좋은 크기로 자르고, 팬에 노릇하게 구워 준비한다.\n" +
 
@@ -319,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
 
             "7. 바게트 or 식빵을 구워 함께 곁들어 먹는다.\n", "https://youtu.be/jBdQ65yHB_U","양식", new ArrayList<String>(Arrays.asList("새우","마늘")),
 
-            new ArrayList<String>(Arrays.asList("양송이버섯","방울토마토","올리브유","후추","파슬리","빵","페페론치노")), R.drawable.apple, R.drawable.button_blue);
+            new ArrayList<String>(Arrays.asList("양송이버섯","방울토마토","올리브유","후추","파슬리","빵","페페론치노")), R.drawable.gambas, R.drawable.youtube);
 
 
 
@@ -333,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
 
             "4. 맛소금을 약간넣는다.\n" +
 
-            "5. 물이 끓으면 라면을 넣는다. \n", "https://youtu.be/hM1Uns_o7HE", "일식", new ArrayList<String>(Arrays.asList("대파","삼겹살")), new ArrayList<String>(Arrays.asList("진간장","맛소금")), R.drawable.apple, R.drawable.button_blue);
+            "5. 물이 끓으면 라면을 넣는다. \n", "https://youtu.be/hM1Uns_o7HE", "일식", new ArrayList<String>(Arrays.asList("대파","삼겹살")), new ArrayList<String>(Arrays.asList("진간장","맛소금")), R.drawable.ramen, R.drawable.youtube);
 
             RecipyInfo friedUdong = new RecipyInfo("볶음우동","1. 양파, 당근은 채 썰고 대파, 쪽파는 송송 썰어 준비한다.\n" +
 
@@ -355,7 +355,7 @@ public class MainActivity extends AppCompatActivity {
 
             "10. 훈연멸치가루, 쪽파를 올려 마무리한다.\n", "https://youtu.be/zRg4nxIv3j8", "일식", new ArrayList<String>(Arrays.asList("양배추","양파","돼지고기","대파")),
 
-            new ArrayList<String>(Arrays.asList("우동면","멸치가루","쪽파","당근")), R.drawable.apple, R.drawable.button_blue);
+            new ArrayList<String>(Arrays.asList("우동면","멸치가루","쪽파","당근")), R.drawable.friedudong, R.drawable.youtube);
 
             RecipyInfo porkCutlet = new RecipyInfo("돈까스","1. 등심에 꽃소금, 후춧가루를 앞뒤로 살짝 뿌려 밑간을 해준다.\n" +
 
@@ -377,7 +377,7 @@ public class MainActivity extends AppCompatActivity {
 
             "7. 돈가스를 체에 세워 밭쳐 기름을 빼준다.\n","https://youtu.be/037o6vxm0es","일식", new ArrayList<String>(Arrays.asList("돼지고기","달걀")),
 
-            new ArrayList<String>(Arrays.asList("빵가루","밀가루","후추","소금","식용유")), R.drawable.apple, R.drawable.button_blue);
+            new ArrayList<String>(Arrays.asList("빵가루","밀가루","후추","소금","식용유")), R.drawable.porkcutlet, R.drawable.youtube);
 
             RecipyInfo porkRice = new RecipyInfo("돼지고기 덮밥", "1. 덮밥용 양파는 굵게 다져 준비한다.\n" +
 
@@ -393,7 +393,7 @@ public class MainActivity extends AppCompatActivity {
 
             "6. 양념장이 절반정도 졸아들면 삶은 달걀을 넣어 함께 졸인다.\n" +
 
-            "7. 완성그릇에 밥을 담고 돼지고기조림, 깻잎을 올려 마무리한다.\n", "https://youtu.be/5iRPP3nqCJE","일식", new ArrayList<String>(Arrays.asList("돼지고기","달걀","양파")), new ArrayList<String>(Arrays.asList("굴소스","노두유","깻잎","진간장","설탕")), R.drawable.apple, R.drawable.button_blue);
+            "7. 완성그릇에 밥을 담고 돼지고기조림, 깻잎을 올려 마무리한다.\n", "https://youtu.be/5iRPP3nqCJE","일식", new ArrayList<String>(Arrays.asList("돼지고기","달걀","양파")), new ArrayList<String>(Arrays.asList("굴소스","노두유","깻잎","진간장","설탕")), R.drawable.porkrice, R.drawable.youtube);
 
             RecipyInfo curry = new RecipyInfo("카레", "1. 양파는 꼭지를 제거한 후 폭 1cm 길이 2cm 크기로 사각썰기하여 준비한다.\n" +
 
@@ -431,7 +431,7 @@ public class MainActivity extends AppCompatActivity {
 
             "   *버터를 카레에 안 넣었을 경우 완성 그릇에 1조각을 함께 올려도 좋다.\n", "https://youtu.be/LTVxirHWvh8", "일식",
 
-            new ArrayList<String>(Arrays.asList("돼지고기","양파")), new ArrayList<String>(Arrays.asList("카레가루","당근","케첩","진간장","버터")), R.drawable.apple, R.drawable.button_blue);
+            new ArrayList<String>(Arrays.asList("돼지고기","양파")), new ArrayList<String>(Arrays.asList("카레가루","당근","케첩","진간장","버터")), R.drawable.curry, R.drawable.youtube);
 
 
 
@@ -453,7 +453,7 @@ public class MainActivity extends AppCompatActivity {
 
                     "8. 양념장이 걸쭉하게 졸아들 때까지 끓여 완성한다.\n","https://youtu.be/t4Es8mwdYlE","분식", new ArrayList<String>(Arrays.asList("달걀","양배추","대파","어묵","떡")),
 
-                    new ArrayList<String>(Arrays.asList("고추장","진간장","고춧가루","설탕")), R.drawable.apple, R.drawable.button_blue);
+                    new ArrayList<String>(Arrays.asList("고추장","진간장","고춧가루","설탕")), R.drawable.tteokbokki, R.drawable.youtube);
 
                     RecipyInfo gimbap = new RecipyInfo("김밥","1. 시금치는 뿌리를 제거한 후 프라이팬에 식용유를 두르고 맛소금을 뿌려 볶는다.\n" +
 
@@ -477,7 +477,7 @@ public class MainActivity extends AppCompatActivity {
 
                     "11. 말아진 김밥에 참기름을 바른 후 먹기 좋은 크기로 썰어 완성한다.\n", "https://youtu.be/10fl2mebYHs", "분식",
 
-                    new ArrayList<String>(Arrays.asList("김","달걀")), new ArrayList<String>(Arrays.asList("시금치","당근","단무지","참기름","게맛살","우엉","설탕")), R.drawable.apple, R.drawable.button_blue);
+                    new ArrayList<String>(Arrays.asList("김","달걀")), new ArrayList<String>(Arrays.asList("시금치","당근","단무지","참기름","게맛살","우엉","설탕")), R.drawable.gimbap, R.drawable.youtube);
 
                             RecipyInfo rabokki = new RecipyInfo("라볶이","1. 대파는 송송 썰어 준비한다.\n" +
 
@@ -491,7 +491,7 @@ public class MainActivity extends AppCompatActivity {
 
                             "5. 물이 졸아들고 면이 익으면 불을 끄고 그릇에 담아 완성한다.\n","https://youtu.be/6e-IbuuD6ZU","분식", new ArrayList<String>(Arrays.asList("대파")),
 
-                            new ArrayList<String>(Arrays.asList("라면","고추장","설탕")), R.drawable.apple, R.drawable.button_blue);
+                            new ArrayList<String>(Arrays.asList("라면","고추장","설탕")), R.drawable.rabokki, R.drawable.youtube);
 
 
 
@@ -529,7 +529,7 @@ public class MainActivity extends AppCompatActivity {
 
                             "13. 그릇에 옮겨 담은 후 빼두었던 새우를 위에 올리고 땅콩 분태를 뿌려 완성한다.\n","https://youtu.be/gJDxWPoMHgo","기타",
 
-                            new ArrayList<String>(Arrays.asList("숙주","양파","쌀국수","새우")), new ArrayList<String>(Arrays.asList("부추","멸치액젓","진간장","통마늘","달걀","식초")), R.drawable.apple, R.drawable.button_blue);
+                            new ArrayList<String>(Arrays.asList("숙주","양파","쌀국수","새우")), new ArrayList<String>(Arrays.asList("부추","멸치액젓","진간장","통마늘","달걀","식초")), R.drawable.padthai, R.drawable.youtube);
 
                                     RecipyInfo kebob = new RecipyInfo("케밥","1. 양상추, 양파는 가늘게 채 썰어 섞어둔다.\n" +
 
@@ -545,7 +545,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     "7. 기호에 따라 레몬즙이나 타르타르 소스를 곁들여 먹는다.\n","https://youtu.be/6jCf19GzNcY","기타", new ArrayList<String>(Arrays.asList("빵","양상추","양파","달걀")),
 
-                                    new ArrayList<String>(Arrays.asList("마요네즈","단무지","설탕","식초","레몬즙","후추","소금","밀가루")), R.drawable.apple, R.drawable.button_blue);
+                                    new ArrayList<String>(Arrays.asList("마요네즈","단무지","설탕","식초","레몬즙","후추","소금","밀가루")), R.drawable.kebob, R.drawable.youtube);
 
 
 
@@ -557,7 +557,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     "*온도 변화가 많으면 김치가 빨리 익어 김치 전용 냉장고에 넣어 보관한다.\n" +
 
-                                    "*김치가 발효되면서 가스가 발생해 국물이 넘칠 위험이 있어, 용기의 7~80% 정도만 담는다\n", R.drawable.button_blue);
+                                    "*김치가 발효되면서 가스가 발생해 국물이 넘칠 위험이 있어, 용기의 7~80% 정도만 담는다\n", R.drawable.kimchi);
 
                                     Food leek_0 = new Food("대파", "2022-11-12", "2022-10-29", 0, "냉장: \n" +
 
@@ -567,7 +567,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     "3.\t씻지않고 보관한다.\n" +
 
-                                    "4.\t사용시 씻어 사용한다. \n", R.drawable.button_blue);
+                                    "4.\t사용시 씻어 사용한다. \n", R.drawable.leek);
 
                                     Food leek_1 = new Food("대파", "2023-10-29", "2022-10-29", 1, "냉동: \n" +
 
@@ -577,23 +577,23 @@ public class MainActivity extends AppCompatActivity {
 
                                     "3.\t씻지않고 보관한다.\n" +
 
-                                    "4.\t사용시 씻어 사용한다. \n", R.drawable.button_blue);
+                                    "4.\t사용시 씻어 사용한다. \n", R.drawable.leek);
 
-                                    Food crab = new Food("꽃게","2023-10-28","2022-10-28",1,"냉동: 지퍼팩에 넣어서 보관한다", R.drawable.button_blue);
+                                    Food crab = new Food("꽃게","2023-10-28","2022-10-28",1,"냉동: 지퍼팩에 넣어서 보관한다", R.drawable.crap);
 
-                                    Food radish_0 = new Food("무","2022-11-03","2022-10-27",0,"냉장: 무청(무 끝에 뾰족한 부분)을 제거하고, 비닐호일로 감싼뒤 보관한다.", R.drawable.button_blue);
+                                    Food radish_0 = new Food("무","2022-11-03","2022-10-27",0,"냉장: 무청(무 끝에 뾰족한 부분)을 제거하고, 비닐호일로 감싼뒤 보관한다.", R.drawable.radish0);
 
-                                    Food radish_1 = new Food("무","2023-11-03","2022-10-27",1,"냉동: 무청(무 끝에 뾰족한 부분)을 제거하고, 비닐호일로 감싼뒤 보관한다.", R.drawable.button_blue);
+                                    Food radish_1 = new Food("무","2023-11-03","2022-10-27",1,"냉동: 무청(무 끝에 뾰족한 부분)을 제거하고, 비닐호일로 감싼뒤 보관한다.", R.drawable.radish0);
 
-                                    Food soybeanPaste = new Food("된장","2023-08-03","2022-10-10",0,"냉장: 먹을 만큼의 된장을 따로 보관하여 오염되는 것을 방지한다. ", R.drawable.button_blue);
+                                    Food soybeanPaste = new Food("된장","2023-08-03","2022-10-10",0,"냉장: 먹을 만큼의 된장을 따로 보관하여 오염되는 것을 방지한다. ", R.drawable.soybean);
 
-                                    Food onion = new Food("양파", "2022-10-31", "2022-10-24", 0, "냉장: 세척하지 않고, 각각 랩에 싸서 보관한다", R.drawable.button_blue);
+                                    Food onion = new Food("양파", "2022-10-31", "2022-10-24", 0, "냉장: 세척하지 않고, 각각 랩에 싸서 보관한다", R.drawable.onion);
 
-                                    Food cheongyangRedPepper = new Food("청양고추","2022-11-01","2022-10-25",0,"냉장: 밀폐용기에 키친타월을 깔고, 고추, 키친타원 순으로 겹겹이 쌓아 보관한다.", R.drawable.button_blue);
+                                    Food cheongyangRedPepper = new Food("청양고추","2022-11-01","2022-10-25",0,"냉장: 밀폐용기에 키친타월을 깔고, 고추, 키친타원 순으로 겹겹이 쌓아 보관한다.", R.drawable.pepper);
 
-                                    Food mackerel = new Food("고등어","2022-11-13","2022-10-13",1,"냉동: 고등어를 손질한뒤 식초물과, 소금을 뿌리고, 지퍼백에 넣어 보관한다. ", R.drawable.button_blue);
+                                    Food mackerel = new Food("고등어","2022-11-13","2022-10-13",1,"냉동: 고등어를 손질한뒤 식초물과, 소금을 뿌리고, 지퍼백에 넣어 보관한다. ", R.drawable.mackerel);
 
-                                    Food groundPork = new Food("간 돼지고기","2023-10-13","2022-10-13",1,"냉동: 지퍼백에 담아 납작하게 해서 보관한다.", R.drawable.button_blue);
+                                    Food groundPork = new Food("간 돼지고기","2023-10-13","2022-10-13",1,"냉동: 지퍼백에 담아 납작하게 해서 보관한다.", R.drawable.groundpork);
 
                                     Food pork = new Food("돼지고기","2022-11-06","2022-10-23",0,"냉장, 냉동:\n" +
 
@@ -605,15 +605,15 @@ public class MainActivity extends AppCompatActivity {
 
                                     "4.\t새로 얹어둔 삼겹살을 2번과 동일한 방법으로 랩을 자르지 않고 다시 다른쪽으로 이동해서 덮어준다.\n" +
 
-                                    "5.\t구매한 삼겹살을 모두 같은 방법으로 랩으로 포장해둔다.\n", R.drawable.button_blue);
+                                    "5.\t구매한 삼겹살을 모두 같은 방법으로 랩으로 포장해둔다.\n", R.drawable.pork);
 
-                                    Food beef = new Food("소고기","2022-11-05","2022-10-29",0,"냉장, 냉동: 소분하여 비닐에 넣은 후에 용기에 담아 보관한다.", R.drawable.button_blue);
+                                    Food beef = new Food("소고기","2022-11-05","2022-10-29",0,"냉장, 냉동: 소분하여 비닐에 넣은 후에 용기에 담아 보관한다.", R.drawable.beef);
 
-                                    Food maraSource = new Food("마라소스","2023-08-20","2022-09-01",0,"냉장보관", R.drawable.button_blue);
+                                    Food maraSource = new Food("마라소스","2023-08-20","2022-09-01",0,"냉장보관", R.drawable.mara);
 
-                                    Food beanSprouts = new Food("콩나물","2022-11-04","2022-10-30",0,"냉장: 용기에 키친타월을 깔고나서 물기를 제거한 콩나물을 넣고 보관한다.", R.drawable.button_blue);
+                                    Food beanSprouts = new Food("콩나물","2022-11-04","2022-10-30",0,"냉장: 용기에 키친타월을 깔고나서 물기를 제거한 콩나물을 넣고 보관한다.", R.drawable.beentree);
 
-                                    Food cabbage = new Food("배추","2022-11-05","2022-10-31",0,"냉장: 배추를 신문지로 감싼 후에 비닐봉지에 넣어서 보관한다.", R.drawable.button_blue);
+                                    Food cabbage = new Food("배추","2022-11-05","2022-10-31",0,"냉장: 배추를 신문지로 감싼 후에 비닐봉지에 넣어서 보관한다.", R.drawable.cabbage);
 
                                     Food tofu = new Food("두부","2022-10-30","2022-10-27",0,"냉장: \n" +
 
@@ -621,71 +621,71 @@ public class MainActivity extends AppCompatActivity {
 
                                     "2.\t소금을 한 꼬집 정도 넣고 보관한다.\n" +
 
-                                    "*한번 개봉한 두부는 금방 상하기 때문에 빨리 먹는 것을 추천한다.\n", R.drawable.button_blue);
+                                    "*한번 개봉한 두부는 금방 상하기 때문에 빨리 먹는 것을 추천한다.\n", R.drawable.tofu);
 
-                                    Food shavedPork = new Food("대패삼겹살","2023-07-28","2022-08-30",1,"냉동: 비닐에 대패삼겹살을 펼치고 말아주고나서 지퍼팩에 담아 보관한다.", R.drawable.button_blue);
+                                    Food shavedPork = new Food("대패삼겹살","2023-07-28","2022-08-30",1,"냉동: 비닐에 대패삼겹살을 펼치고 말아주고나서 지퍼팩에 담아 보관한다.", R.drawable.shaved);
 
-                                    Food chicken = new Food("닭고기","2022-11-03","2022-10-27",0,"냉장, 냉동: 밀폐용기에 담아 보관하다.", R.drawable.button_blue);
+                                    Food chicken = new Food("닭고기","2022-11-03","2022-10-27",0,"냉장, 냉동: 밀폐용기에 담아 보관하다.", R.drawable.chicken);
 
-                                    Food bacon = new Food("베이컨","2023-10-02","2022-10-01",1,"냉동: 베이컨을 지퍼백에 소분하여 넣어준뒤 쌓아서 보관한다.", R.drawable.button_blue);
+                                    Food bacon = new Food("베이컨","2023-10-02","2022-10-01",1,"냉동: 베이컨을 지퍼백에 소분하여 넣어준뒤 쌓아서 보관한다.", R.drawable.bacon);
 
-                                    Food milk = new Food("우유","2022-11-05","2022-10-29",0,"냉장보관", R.drawable.button_blue);
+                                    Food milk = new Food("우유","2022-11-05","2022-10-29",0,"냉장보관", R.drawable.milk);
 
-                                    Food lettuce = new Food("상추","2022-11-07","2022-10-31",0,"냉장: 밀폐용기 바닥에 키친타월과 상추를 번갈아가며 쌓아서 보관한다.", R.drawable.button_blue);
+                                    Food lettuce = new Food("상추","2022-11-07","2022-10-31",0,"냉장: 밀폐용기 바닥에 키친타월과 상추를 번갈아가며 쌓아서 보관한다.", R.drawable.lettuce);
 
-                                    Food cheeze = new Food("치즈","2022-10-31","2022-10-24",0,"냉장: 공기가 접촉하지 않게 해서 보관한다.", R.drawable.button_blue);
+                                    Food cheeze = new Food("치즈","2022-10-31","2022-10-24",0,"냉장: 공기가 접촉하지 않게 해서 보관한다.", R.drawable.cheese);
 
-                                    Food sweetPotato = new Food("고구마","2022-11-31","2022-10-30",0,"냉장: 물기를 없앤 고구마를 신문지에 감싸서 보관한다.", R.drawable.button_blue);
+                                    Food sweetPotato = new Food("고구마","2022-11-31","2022-10-30",0,"냉장: 물기를 없앤 고구마를 신문지에 감싸서 보관한다.", R.drawable.goguma);
 
-                                    Food egg = new Food("달걀", "2022-11-03", "2022-10-20", 0, "냉장보관", R.drawable.button_blue);
+                                    Food egg = new Food("달걀", "2022-11-03", "2022-10-20", 0, "냉장보관", R.drawable.egg);
 
-                                    Food shrimp = new Food("새우","2023-07-20","2022-07-20",1,"냉동: 새우를 지퍼백에 소분해서 담아 보관한다.", R.drawable.button_blue);
+                                    Food shrimp = new Food("새우","2023-07-20","2022-07-20",1,"냉동: 새우를 지퍼백에 소분해서 담아 보관한다.", R.drawable.shirimp);
 
                                     Food garlic = new Food("마늘", "2022-12-15", "2022-10-15", 0, "냉장:\n" +
 
                                     "1.\t밀폐용기에 설탕을 1cm두께로 깔아준다.\n" +
 
-                                    "2.\t종이호일을 깔아주고 마늘을 넣어서 보관한다. \n", R.drawable.button_blue);
+                                    "2.\t종이호일을 깔아주고 마늘을 넣어서 보관한다. \n", R.drawable.garlic);
 
                                     Food crushedGarlic = new Food("다진마늘","2023-10-15","2022-10-15",1,"냉동:\n" +
 
                                     "1.\t얼음틀에 간마늘을 얼려준다.\n" +
 
-                                    "2.\t얼린 간마늘을 지퍼백에 넣어서 보관한다. \n", R.drawable.button_blue);
+                                    "2.\t얼린 간마늘을 지퍼백에 넣어서 보관한다. \n", R.drawable.garliccrush);
 
-                                    Food udonNoodles = new Food("우동면","2023-11-19","2022-10-01",1,"냉동보관", R.drawable.apple);
+                                    Food udonNoodles = new Food("우동면","2023-11-19","2022-10-01",1,"냉동보관", R.drawable.udonnoodle);
 
-                                    Food anchovy = new Food("멸치","2023-09-09","2022-08-10",1,"밀폐용기에 담아 보관한다.", R.drawable.button_blue);
+                                    Food anchovy = new Food("멸치","2023-09-09","2022-08-10",1,"밀폐용기에 담아 보관한다.", R.drawable.anchovy);
 
-                                    Food riceCake = new Food("떡","2023-02-12","2022-07-21",1,"냉동: 소분한 떡을 랩을 씌우고 지퍼백에 담아 보관한다.", R.drawable.recipybook);
+                                    Food riceCake = new Food("떡","2023-02-12","2022-07-21",1,"냉동: 소분한 떡을 랩을 씌우고 지퍼백에 담아 보관한다.", R.drawable.dduck);
 
-                                    Food fishCake = new Food("어묵","2022-10-31","2022-10-24",0,"냉장, 냉동: 지퍼백에 넣어 보관한다.", R.drawable.button_blue);
+                                    Food fishCake = new Food("어묵","2022-10-31","2022-10-24",0,"냉장, 냉동: 지퍼백에 넣어 보관한다.", R.drawable.fishcake);
 
-                                    Food spinach = new Food("시금치","2022-11-07","2022-10-31",0,"냉장: 물에 씻지 않은 시금치를 신문지나 키친타월에 감싸 지퍼백에 담아 보관한다.", R.drawable.button_blue);
+                                    Food spinach = new Food("시금치","2022-11-07","2022-10-31",0,"냉장: 물에 씻지 않은 시금치를 신문지나 키친타월에 감싸 지퍼백에 담아 보관한다.", R.drawable.spinach);
 
-                                    Food pickledRadish = new Food("단무지","2022-11-20","2022-10-20",0,"냉장: 밀폐용기에 물과 식초 그리고 설탕을 2:1:1의 비율로 섞은 후에 단무지를 넣어서 보관한다.", R.drawable.button_blue);
+                                    Food pickledRadish = new Food("단무지","2022-11-20","2022-10-20",0,"냉장: 밀폐용기에 물과 식초 그리고 설탕을 2:1:1의 비율로 섞은 후에 단무지를 넣어서 보관한다.", R.drawable.danmuzi);
 
-                                    Food carrot = new Food("당근","2022-11-04","2022-10-28",0,"냉장: 물에 씻지 않은 당근을 신문지나 키친타월에 감싸 지퍼백에 담아 보관한다.", R.drawable.button);
+                                    Food carrot = new Food("당근","2022-11-04","2022-10-28",0,"냉장: 물에 씻지 않은 당근을 신문지나 키친타월에 감싸 지퍼백에 담아 보관한다.", R.drawable.carrot);
 
-                                    Food sukju = new Food("숙주","2022-11-03","2022-10-31",0,"냉장: 용기에 키친타월을 깐후 물기를 제거한 콩나물을 넣고 보관", R.drawable.button_blue);
+                                    Food sukju = new Food("숙주","2022-11-03","2022-10-31",0,"냉장: 용기에 키친타월을 깐후 물기를 제거한 콩나물을 넣고 보관", R.drawable.sukju);
 
-                                    Food apple = new Food("사과","2022-11-05","2022-10-22",0,"랩으로 싸서 보관한다.", R.drawable.button_blue);
+                                    Food apple = new Food("사과","2022-11-05","2022-10-22",0,"랩으로 싸서 보관한다.", R.drawable.apple);
 
-                                    Food paprika = new Food("파프리카","2022-11-03","2022-10-27",0,"냉장: 물기를 제거한 파프리카를 지퍼팩에 넣어서 보관한다.", R.drawable.apple);
+                                    Food paprika = new Food("파프리카","2022-11-03","2022-10-27",0,"냉장: 물기를 제거한 파프리카를 지퍼팩에 넣어서 보관한다.", R.drawable.paprika);
 
-                                    Food coke = new Food("콜라","2023-05-03","2022-08-23",0,"냉장보관", R.drawable.button_blue);
+                                    Food coke = new Food("콜라","2023-05-03","2022-08-23",0,"냉장보관", R.drawable.coke);
 
-                                    Food cucumber = new Food("오이","2022-11-08","2022-10-25",0,"냉장: 물기를 제거한 오이를 랩이나 키친타월로 감싸서 보관한다.", R.drawable.recipybook);
+                                    Food cucumber = new Food("오이","2022-11-08","2022-10-25",0,"냉장: 물기를 제거한 오이를 랩이나 키친타월로 감싸서 보관한다.", R.drawable.cucumber);
 
-                                    Food sausages = new Food("소세지","2023-10-23","2022-08-28",1,"냉동: 소시지를 소분해서 지퍼팩에 넣어서 보관한다.", R.drawable.button_blue);
+                                    Food sausages = new Food("소세지","2023-10-23","2022-08-28",1,"냉동: 소시지를 소분해서 지퍼팩에 넣어서 보관한다.", R.drawable.sausage);
 
-                                    Food orange = new Food("오렌지","2022-11-07","2022-10-31",0,"냉장: 물기를 제거한 오렌지를 랩으로 감싸서 보관한다.", R.drawable.button_push);
+                                    Food orange = new Food("오렌지","2022-11-07","2022-10-31",0,"냉장: 물기를 제거한 오렌지를 랩으로 감싸서 보관한다.", R.drawable.orange);
 
-                                    Food salmon = new Food("연어","2022-11-02","2022-10-31",0,"냉장: 연어에 청주를 조금 발라준 뒤 랩으로 밀봉하여 용기에 넣어서 보관한다.", R.drawable.apple);
+                                    Food salmon = new Food("연어","2022-11-02","2022-10-31",0,"냉장: 연어에 청주를 조금 발라준 뒤 랩으로 밀봉하여 용기에 넣어서 보관한다.", R.drawable.salmon);
 
-                                    Food sweetPumpkin = new Food("단호박","2022-11-06","2022-10-30",0,"냉장: 씨앗을 제거한 단호박을 먹기 좋은 크기로 잘라서 밀폐용기에 넣어서 보관한다.", R.drawable.button_blue);
+                                    Food sweetPumpkin = new Food("단호박","2022-11-06","2022-10-30",0,"냉장: 씨앗을 제거한 단호박을 먹기 좋은 크기로 잘라서 밀폐용기에 넣어서 보관한다.", R.drawable.sweetpum);
 
-                                    Food watermelon = new Food("수박","2022-11-07","2022-10-31",0,"냉장: 알맞은 크기로 자른 수박을 밀폐용기에 넣어서 보관한다.", R.drawable.apple);
+                                    Food watermelon = new Food("수박","2022-11-07","2022-10-31",0,"냉장: 알맞은 크기로 자른 수박을 밀폐용기에 넣어서 보관한다.", R.drawable.watermelon);
 
 
 
