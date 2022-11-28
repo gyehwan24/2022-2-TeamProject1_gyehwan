@@ -719,51 +719,18 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack("fragice");
         fragmentTransaction.commit();
 
-        foodlist.add(kimchi);
-        foodlist.add(leek_0);
-        foodlist.add(leek_1);
-        foodlist.add(crab);
-        foodlist.add(radish_0);
-        foodlist.add(radish_1);
-        foodlist.add(onion);
-        foodlist.add(cheongyangRedPepper);
-        foodlist.add(mackerel);
-        foodlist.add(groundPork);
-        foodlist.add(pork);
-        foodlist.add(beef);
-        foodlist.add(maraSource);
-        foodlist.add(beanSprouts);
-        foodlist.add(cabbage);
-        foodlist.add(tofu);
-        foodlist.add(shavedPork);
-        foodlist.add(chicken);
-        foodlist.add(milk);
-        foodlist.add(lettuce);
-        foodlist.add(cheeze);
-        foodlist.add(sweetPotato);
-        foodlist.add(egg);
-        foodlist.add(shrimp);
-        foodlist.add(garlic);
-        foodlist.add(crushedGarlic);
-        foodlist.add(udonNoodles);
-        foodlist.add(anchovy);
-        foodlist.add(riceCake);
-        foodlist.add(fishCake);
-        foodlist.add(spinach);
-        foodlist.add(carrot);
-        foodlist.add(pickledRadish);
-        foodlist.add(sukju);
-        foodlist.add(apple);
-        foodlist.add(paprika);
-        foodlist.add(coke);
-        foodlist.add(cucumber);
-        foodlist.add(sausages);
-        foodlist.add(orange);
-        foodlist.add(salmon);
-        foodlist.add(sweetPumpkin);
-        foodlist.add(watermelon);
-        foodlist.add(bacon);
-        foodlist.add(soybeanPaste);
+        foodlist.add(kimchi); foodlist.add(leek_0); foodlist.add(leek_1); foodlist.add(crab);
+        foodlist.add(radish_0); foodlist.add(radish_1); foodlist.add(onion); foodlist.add(cheongyangRedPepper);
+        foodlist.add(mackerel); foodlist.add(groundPork); foodlist.add(pork); foodlist.add(beef);
+        foodlist.add(maraSource); foodlist.add(beanSprouts); foodlist.add(cabbage); foodlist.add(tofu);
+        foodlist.add(shavedPork); foodlist.add(chicken); foodlist.add(milk); foodlist.add(lettuce);
+        foodlist.add(cheeze); foodlist.add(sweetPotato); foodlist.add(egg); foodlist.add(shrimp);
+        foodlist.add(garlic); foodlist.add(crushedGarlic); foodlist.add(udonNoodles);
+        foodlist.add(anchovy); foodlist.add(riceCake); foodlist.add(fishCake); foodlist.add(spinach);
+        foodlist.add(carrot); foodlist.add(pickledRadish); foodlist.add(sukju); foodlist.add(apple);
+        foodlist.add(paprika); foodlist.add(coke); foodlist.add(cucumber); foodlist.add(sausages);
+        foodlist.add(orange); foodlist.add(salmon); foodlist.add(sweetPumpkin); foodlist.add(watermelon);
+        foodlist.add(bacon); foodlist.add(soybeanPaste);
 
         size = foodlist.size();
         for(int i = 0; i < size;i++){
@@ -777,39 +744,22 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        recipylist.add(kimchiFriedRice);
-        recipylist.add(eggFriedRice);
-        recipylist.add(braisedMackerel);
-        recipylist.add(braisedPorkKimchi);
-        recipylist.add(bibimbap);
-        recipylist.add(bulgogi);
-        recipylist.add(grilledPork);
-        recipylist.add(mapatopu);
-        recipylist.add(dongpayuk);
-        recipylist.add(tangsuyuk);
-        recipylist.add(jjambbong);
-        recipylist.add(steak);
-        recipylist.add(creamPasta);
-        recipylist.add(vongolePasta);
-        recipylist.add(gambas);
-        recipylist.add(ramen);
-        recipylist.add(porkRice);
-        recipylist.add(porkCutlet);
-        recipylist.add(friedUdong);
-        recipylist.add(tteokbokki);
-        recipylist.add(curry);
-        recipylist.add(gimbap);
-        recipylist.add(rabokki);
-        recipylist.add(padthai);
-        recipylist.add(kebob);
-        sendlist = (ArrayList<RecipyInfo>) findRecipe(recipylist, foodlist).clone();
+        recipylist.add(kimchiFriedRice); recipylist.add(eggFriedRice); recipylist.add(braisedMackerel);
+        recipylist.add(braisedPorkKimchi); recipylist.add(bibimbap); recipylist.add(bulgogi);
+        recipylist.add(grilledPork); recipylist.add(mapatopu); recipylist.add(dongpayuk);
+        recipylist.add(tangsuyuk); recipylist.add(jjambbong); recipylist.add(steak);
+        recipylist.add(creamPasta); recipylist.add(vongolePasta); recipylist.add(gambas);
+        recipylist.add(ramen); recipylist.add(porkRice); recipylist.add(porkCutlet); recipylist.add(friedUdong);
+        recipylist.add(tteokbokki); recipylist.add(curry); recipylist.add(gimbap);
+        recipylist.add(rabokki); recipylist.add(padthai); recipylist.add(kebob);
+        //sendlist = (ArrayList<RecipyInfo>) findRecipe(recipylist, foodlist).clone();
 
         for(int i = 0; i < foodlist.size(); i++){
             if(foodlist.get(i).getExpiration_dday() <= 3){
                 alertfoodlist.add(foodlist.get(i));
             }
         }
-        alertlist = (ArrayList<RecipyInfo>) findRecipe(recipylist, alertfoodlist).clone();
+        //alertlist = (ArrayList<RecipyInfo>) findRecipe(recipylist, alertfoodlist).clone();
 
 
 
@@ -828,6 +778,9 @@ public class MainActivity extends AppCompatActivity {
         btnRecipy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sendlist = (ArrayList<RecipyInfo>) findRecipe(recipylist, foodlist).clone();
+                alertlist = (ArrayList<RecipyInfo>) findRecipe(recipylist, alertfoodlist).clone();
+
                 Intent intent = new Intent(getApplicationContext(), Recipy.class);
                 intent.putExtra("Main", recipylist);
                 intent.putExtra("Object", sendlist);
