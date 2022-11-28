@@ -44,6 +44,14 @@ public class Recipy extends Activity {
 
     int i = 0;
 
+    public void colorInit(){
+        West.setBackgroundResource(R.drawable.button);
+        China.setBackgroundResource(R.drawable.button);
+        Japan.setBackgroundResource(R.drawable.button);
+        Boon.setBackgroundResource(R.drawable.button);
+        Etc.setBackgroundResource(R.drawable.button);
+        Korea.setBackgroundResource(R.drawable.button);
+    }
 
 
 
@@ -125,12 +133,7 @@ public class Recipy extends Activity {
 
                     list.setAdapter(adapter);
                 }
-                West.setBackgroundResource(R.drawable.button);
-                China.setBackgroundResource(R.drawable.button);
-                Japan.setBackgroundResource(R.drawable.button);
-                Boon.setBackgroundResource(R.drawable.button);
-                Etc.setBackgroundResource(R.drawable.button);
-                Korea.setBackgroundResource(R.drawable.button);
+                colorInit();
             }
         });
 
@@ -170,11 +173,7 @@ public class Recipy extends Activity {
                 switch (view.getId()){
                     case R.id.btnkorea:
                         //code
-                        West.setBackgroundResource(R.drawable.button);
-                        China.setBackgroundResource(R.drawable.button);
-                        Japan.setBackgroundResource(R.drawable.button);
-                        Boon.setBackgroundResource(R.drawable.button);
-                        Etc.setBackgroundResource(R.drawable.button);
+                        colorInit();
                         Korea.setBackgroundResource(R.drawable.button_push);
 
                         templist = (ArrayList<RecipyInfo>) sublist.clone();
@@ -202,12 +201,10 @@ public class Recipy extends Activity {
                         break;
                     case R.id.btnchina:
                         //code
-                        West.setBackgroundResource(R.drawable.button);
+                        colorInit();
+
                         China.setBackgroundResource(R.drawable.button_push);
-                        Japan.setBackgroundResource(R.drawable.button);
-                        Boon.setBackgroundResource(R.drawable.button);
-                        Etc.setBackgroundResource(R.drawable.button);
-                        Korea.setBackgroundResource(R.drawable.button);
+
                         templist = (ArrayList<RecipyInfo>) sublist.clone();
                         recipylist = (ArrayList<RecipyInfo>) templist.clone();
                         recipylist.clear();
@@ -230,12 +227,9 @@ public class Recipy extends Activity {
                         break;
                     case R.id.btnwest:
                         //code
+                        colorInit();
                         West.setBackgroundResource(R.drawable.button_push);
-                        China.setBackgroundResource(R.drawable.button);
-                        Japan.setBackgroundResource(R.drawable.button);
-                        Boon.setBackgroundResource(R.drawable.button);
-                        Etc.setBackgroundResource(R.drawable.button);
-                        Korea.setBackgroundResource(R.drawable.button);
+
                         ListAdapter adapter2 = new ListAdapter();
                         templist = (ArrayList<RecipyInfo>) sublist.clone();
                         recipylist = (ArrayList<RecipyInfo>) templist.clone();
@@ -260,12 +254,9 @@ public class Recipy extends Activity {
                         break;
                     case R.id.btnjapan:
                         //code
-                        West.setBackgroundResource(R.drawable.button);
-                        China.setBackgroundResource(R.drawable.button);
+                        colorInit();
                         Japan.setBackgroundResource(R.drawable.button_push);
-                        Boon.setBackgroundResource(R.drawable.button);
-                        Etc.setBackgroundResource(R.drawable.button);
-                        Korea.setBackgroundResource(R.drawable.button);
+
                         ListAdapter adapter3 = new ListAdapter();
                         templist = (ArrayList<RecipyInfo>) sublist.clone();
                         recipylist = (ArrayList<RecipyInfo>) templist.clone();
@@ -289,12 +280,9 @@ public class Recipy extends Activity {
                         break;
                     case R.id.btnboon:
                         //code
-                        West.setBackgroundResource(R.drawable.button);
-                        China.setBackgroundResource(R.drawable.button);
-                        Japan.setBackgroundResource(R.drawable.button);
+                        colorInit();
                         Boon.setBackgroundResource(R.drawable.button_push);
-                        Etc.setBackgroundResource(R.drawable.button);
-                        Korea.setBackgroundResource(R.drawable.button);
+
 
                         if(!All){
                             templist.clear();
@@ -315,12 +303,9 @@ public class Recipy extends Activity {
                         break;
                     case R.id.btnetc:
                         //code
-                        West.setBackgroundResource(R.drawable.button);
-                        China.setBackgroundResource(R.drawable.button);
-                        Japan.setBackgroundResource(R.drawable.button);
-                        Boon.setBackgroundResource(R.drawable.button);
+                        colorInit();
                         Etc.setBackgroundResource(R.drawable.button_push);
-                        Korea.setBackgroundResource(R.drawable.button);
+
                         templist = (ArrayList<RecipyInfo>) sublist.clone();
                         recipylist = (ArrayList<RecipyInfo>) templist.clone();
                         recipylist.clear();

@@ -27,6 +27,7 @@
 
     </LinearLayout>
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -51,14 +52,15 @@
 
         <ImageButton
             android:id="@+id/btnRecipy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="14dp"
+            android:layout_height="22dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginLeft="20dp"
 
-            android:layout_marginTop="-9dp"
-            android:layout_marginEnd="169dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="200dp"
             android:layout_marginRight="20dp"
             android:background="#ADD8E6"
             android:padding="20dp"
@@ -80,16 +82,6 @@
             android:src="@drawable/merge"
             android:text="merge" />
 
-        <ImageView
-            android:id="@+id/union"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="4dp"
-            android:background="#ADD8E6"
-            android:src="@drawable/union_off" />
 
         <TextView
             android:id="@+id/textmerge"
@@ -109,8 +101,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="194dp"
-            android:layout_marginBottom="9dp"
+            android:layout_marginEnd="193dp"
+            android:layout_marginBottom="6dp"
             android:text="레시피"
             android:textStyle="bold" />
 
@@ -126,6 +118,5 @@
             android:textStyle="bold" />
 
     </RelativeLayout>
-
 
 </LinearLayout>

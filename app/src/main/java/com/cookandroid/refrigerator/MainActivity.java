@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     ImageButton btnRecipy;
     ImageButton btnMerge;
     Switch btnIce;                               //레시피 , 냉장버튼
-    ImageView btnunion;
     TextView merge;
     TextView cool;
     int isItDDay = 0;                    //0 기본, 1 유통기한,2 입고날짜
@@ -708,7 +707,6 @@ public class MainActivity extends AppCompatActivity {
         btnRecipy = (ImageButton)findViewById(R.id.btnRecipy);
         btnIce = (Switch) findViewById(R.id.btnIce);
         btnMerge = (ImageButton)findViewById(R.id.btnMerge);
-        btnunion = (ImageView)findViewById(R.id.union);
         cool = (TextView)findViewById(R.id.textice);
         merge = (TextView)findViewById(R.id.textmerge);
 
@@ -770,9 +768,12 @@ public class MainActivity extends AppCompatActivity {
         dlg.setNegativeButton("닫기", null);
         dlg.show();
 
+        /*
         if(notifyExpirationDate(foodlist)){
             btnunion.setImageResource(R.drawable.union);
         }
+
+         */
 
         //레시피 버튼 기능 구현
         btnRecipy.setOnClickListener(new View.OnClickListener() {
