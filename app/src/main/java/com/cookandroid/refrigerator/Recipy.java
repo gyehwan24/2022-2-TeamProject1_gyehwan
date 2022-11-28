@@ -31,8 +31,9 @@ public class Recipy extends Activity {
     ArrayList<RecipyInfo> recipylist = new ArrayList<>();
     ArrayList<RecipyInfo> templist = new ArrayList<>();
     ArrayList<RecipyInfo> sublist = new ArrayList<>();
+    ArrayList<RecipyInfo> alelist = new ArrayList<>();
 
-    boolean All = true;
+    boolean All = true; //need change    all, can , alert
 
     //더미
     int image;
@@ -73,6 +74,7 @@ public class Recipy extends Activity {
 
         mainlist = (ArrayList<RecipyInfo>) rxIntent.getSerializableExtra("Main");
         recipylist = (ArrayList<RecipyInfo>) rxIntent.getSerializableExtra("Object");
+        alelist = (ArrayList<RecipyInfo>) rxIntent.getSerializableExtra("Alert");
 
         templist = (ArrayList<RecipyInfo>) recipylist.clone();
         sublist = (ArrayList<RecipyInfo>) templist.clone();
@@ -369,6 +371,7 @@ public class Recipy extends Activity {
         });
          */
     }
+
 
     //
     public static final ArrayList<RecipyInfo> findCategory(@NotNull ArrayList<RecipyInfo> recipeList, @NotNull String category) {

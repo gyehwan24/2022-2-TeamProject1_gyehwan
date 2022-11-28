@@ -57,14 +57,14 @@ public class CoolFragment extends Fragment {
             textView.setText(foodArrayList.get(position).getName());
 
             imageview.setImageResource(foodArrayList.get(position).getImage());
-            if(foodArrayList.get(position).getExpiration_dday() == 0){
+            if(foodArrayList.get(position).getExpiration_dday() <= 0){
                 imageView2.setImageResource(R.drawable.gridball);
             }
-            else if(foodArrayList.get(position).getExpiration_dday()*-1 <= 3){
+            else if(foodArrayList.get(position).getExpiration_dday() <= 3){
                 imageView2.setImageResource(R.drawable.gridballrd);
 
             }
-            else if(foodArrayList.get(position).getExpiration_dday()*-1 <= 5){
+            else if(foodArrayList.get(position).getExpiration_dday() <= 5){
                 imageView2.setImageResource(R.drawable.gridbally);
             }
             else{
@@ -79,6 +79,7 @@ public class CoolFragment extends Fragment {
                     intent.putExtra("Name", foodArrayList.get(position).getName());
                     intent.putExtra("Date", foodArrayList.get(position).getExpiration_date());
                     intent.putExtra("Storagy", foodArrayList.get(position).getStorage());
+                    intent.putExtra("Data", foodArrayList.get(position).getInput_date());
                     startActivity(intent);
                 }
             });

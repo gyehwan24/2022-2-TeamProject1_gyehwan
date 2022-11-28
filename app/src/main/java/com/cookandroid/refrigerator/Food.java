@@ -95,7 +95,7 @@ public class Food implements Parcelable {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        long dday = (date.getTime() - expi.getTime())/ (60*60*24*1000);
+        long dday = (expi.getTime() - date.getTime())/ (60*60*24*1000);
         return (int) dday;
 
     }

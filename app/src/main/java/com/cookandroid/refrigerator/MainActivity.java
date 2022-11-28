@@ -1,8 +1,10 @@
 package com.cookandroid.refrigerator;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,7 +30,14 @@ import java.util.List;
 
 import kotlin.collections.CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
+/*
+변수 선언, 초기화
 
+메인 코드
+
+자료구조 메소드
+순
+ */
 public class MainActivity extends AppCompatActivity {
 
     ImageButton btnRecipy;
@@ -46,10 +55,12 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Food> foodlist = new ArrayList<>();           // food list
     ArrayList<RecipyInfo> recipylist = new ArrayList<>();   // recipy list
     ArrayList<RecipyInfo> sendlist = new ArrayList<>();     //recipy send  (total -> can)
+    ArrayList<RecipyInfo> alertlist = new ArrayList<>();
     ArrayList<Food> foodlistDDaySort = new ArrayList<>();
     ArrayList<Food> foodlistDateSort = new ArrayList<>();
     ArrayList<Food> icelist = new ArrayList<>();
     ArrayList<Food> coollist = new ArrayList<>();
+    ArrayList<Food> alertfoodlist = new ArrayList<>();
 
 
 
@@ -766,20 +777,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         recipylist.add(kimchiFriedRice);
         recipylist.add(eggFriedRice);
         recipylist.add(braisedMackerel);
@@ -807,7 +804,21 @@ public class MainActivity extends AppCompatActivity {
         recipylist.add(kebob);
         sendlist = (ArrayList<RecipyInfo>) findRecipe(recipylist, foodlist).clone();
 
+        for(int i = 0; i < foodlist.size(); i++){
+            if(foodlist.get(i).getExpiration_dday() <= 3){
+                alertfoodlist.add(foodlist.get(i));
+            }
+        }
+        alertlist = (ArrayList<RecipyInfo>) findRecipe(recipylist, alertfoodlist).clone();
 
+
+
+        //
+        AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+        dlg.setTitle("도움말");
+        dlg.setView(R.layout.dialog);
+        dlg.setNegativeButton("닫기", null);
+        dlg.show();
 
         if(notifyExpirationDate(foodlist)){
             btnunion.setImageResource(R.drawable.union);
@@ -820,6 +831,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), Recipy.class);
                 intent.putExtra("Main", recipylist);
                 intent.putExtra("Object", sendlist);
+                intent.putExtra("Alert", alertlist);
                 startActivity(intent);
             }
         });
@@ -1053,7 +1065,7 @@ public class MainActivity extends AppCompatActivity {
         int indexB = mid + 1;
 
         while(indexA <= mid && indexB <= end) {
-            if (((Food)list.get(indexA)).getExpirationDDay() > ((Food)list.get(indexB)).getExpirationDDay()) {
+            if (((Food)list.get(indexA)).getExpirationDDay() < ((Food)list.get(indexB)).getExpirationDDay()) {
                 sortedList.add(list.get(indexA));
                 ++indexA;
             } else {
@@ -1119,8 +1131,8 @@ public class MainActivity extends AppCompatActivity {
         Intrinsics.checkNotNullParameter(list, "list");
         if (start < end) {
             int mid = (start + end) / 2;
-            mergeSort(list, start, mid);
-            mergeSort(list, mid + 1, end);
+            StringmergeSort(list, start, mid);
+            StringmergeSort(list, mid + 1, end);
             Stringmerge(list, start, mid, end);
         }
     }
@@ -1128,8 +1140,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean notifyExpirationDate(ArrayList<Food> list){
         boolean needNotify = false;
         for(int i = 0; i < list.size(); i++){
-            if(list.get(i).getExpirationDDay()*-1 <= 3){
+            if(list.get(i).getExpirationDDay() <= 3){
                 needNotify = true;
+                break;
             }
         }
         return needNotify;
