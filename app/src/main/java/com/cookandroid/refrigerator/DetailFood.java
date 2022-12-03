@@ -16,6 +16,7 @@ public class DetailFood extends Activity {
     String date;
     String storagy;
     int image;
+    int point;
 
 
     @Override
@@ -36,6 +37,8 @@ public class DetailFood extends Activity {
         date = "유통기한 : "+ extras.getString("Date");
         storagy = "<보관방법>\n\n" + extras.getString("Storagy");
 
+        //point 값에 위치 저장 ->다시 main activity 에 전달하여 리스트 수정
+        point = extras.getInt("Point");
 
         food_image.setImageResource(image);
         food_name.setText(name);

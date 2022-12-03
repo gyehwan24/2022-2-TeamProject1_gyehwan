@@ -21,7 +21,7 @@ import kotlin.jvm.internal.Intrinsics;
 
 public class Recipy extends Activity {
 
-    Button Recent, Korea, China, West, Japan, Boon, Etc;
+    Button Recent, Korea, China, West, Japan, Boon, Etc, alert;
     View.OnClickListener clickListener;
     Integer[] btn = { R.id.btnkorea, R.id.btnchina, R.id.btnwest, R.id.btnjapan, R.id.btnboon, R.id.btnetc};
 
@@ -68,8 +68,10 @@ public class Recipy extends Activity {
         Boon = (Button)findViewById(R.id.btnboon);
         Etc = (Button)findViewById(R.id.btnetc);
         list = (ListView)findViewById(R.id.listview);
+        alert = (Button)findViewById(R.id.btnalert);
 
         Recent.setText("만들 수 있는 레시피");
+
 
 
         //동적 추가 위한 리스트 -> 메인 리스트와 타입 맞춘 후  메인 리스트에 추가
@@ -103,6 +105,24 @@ public class Recipy extends Activity {
 
         list.setAdapter(adapter);
 
+        /*
+        alert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                adapter.clear();
+                int size = alelist.size();
+
+                for(int i = 0; i < size; i++){
+                    adapter.addItem(new ListItem(alelist.get(i)));
+                }
+
+                list.setAdapter(adapter);
+
+            }
+        });
+
+
+         */
         Recent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

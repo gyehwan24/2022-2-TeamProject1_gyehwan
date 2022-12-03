@@ -730,6 +730,9 @@ public class MainActivity extends AppCompatActivity {
         foodlist.add(orange); foodlist.add(salmon); foodlist.add(sweetPumpkin); foodlist.add(watermelon);
         foodlist.add(bacon); foodlist.add(soybeanPaste);
 
+        //coolist icelist 구분 후 전달 -> 전체list 전달 후 gridview에서 나눠서 출력으로 변경필요(위치포인트 위해서)
+        //위치 포인트 전달받으면 리스트 수정 기능
+        //or 위치 포인트 별도 저장
         size = foodlist.size();
         for(int i = 0; i < size;i++){
             if(foodlist.get(i).getCool() == 0){
