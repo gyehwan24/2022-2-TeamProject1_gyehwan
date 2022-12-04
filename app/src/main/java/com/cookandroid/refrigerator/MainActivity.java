@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -38,11 +40,13 @@ import kotlin.jvm.internal.Intrinsics;
 자료구조 메소드
 순
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FoodPlus.FragmentPlusListener{
 
     ImageButton btnRecipy;
     ImageButton btnMerge;
     Switch btnIce;                               //레시피 , 냉장버튼
+    Button btnplusa;
+    Button btnSetting;
     TextView merge;
     TextView cool;
     int isItDDay = 0;                    //0 기본, 1 유통기한,2 입고날짜
@@ -699,6 +703,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -707,6 +712,8 @@ public class MainActivity extends AppCompatActivity {
         btnRecipy = (ImageButton)findViewById(R.id.btnRecipy);
         btnIce = (Switch) findViewById(R.id.btnIce);
         btnMerge = (ImageButton)findViewById(R.id.btnMerge);
+        btnplusa = (Button)findViewById(R.id.btnplus);
+        btnSetting = (Button)findViewById(R.id.btnsetting);
         cool = (TextView)findViewById(R.id.textice);
         merge = (TextView)findViewById(R.id.textmerge);
 
@@ -744,7 +751,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
         recipylist.add(kimchiFriedRice); recipylist.add(eggFriedRice); recipylist.add(braisedMackerel);
         recipylist.add(braisedPorkKimchi); recipylist.add(bibimbap); recipylist.add(bulgogi);
         recipylist.add(grilledPork); recipylist.add(mapatopu); recipylist.add(dongpayuk);
@@ -777,6 +783,29 @@ public class MainActivity extends AppCompatActivity {
         }
 
          */
+        btnplusa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), FoodPlus.class);
+                FoodPlus foodPlus = new FoodPlus();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frame_layout, foodPlus);
+                fragmentTransaction.addToBackStack("foodplus");
+                fragmentTransaction.commit();
+            }
+        });
+
+        btnSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Setting setting = new Setting();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frame_layout, setting);
+                fragmentTransaction.addToBackStack("setting");
+                fragmentTransaction.commit();
+            }
+        });
+
 
         //레시피 버튼 기능 구현
         btnRecipy.setOnClickListener(new View.OnClickListener() {
@@ -793,7 +822,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         //냉장버튼 기능 구현
+
 
         CoolFragment fragCool = new CoolFragment();
         Bundle data = new Bundle();
@@ -1173,6 +1204,19 @@ public class MainActivity extends AppCompatActivity {
             list.set(start + x, sortedList.get(x));
         }
 
+    }
+
+    //재료 추가
+    @Override
+    public void onInputSend(Food input){
+        foodlist.add(input);
+        if(input.getCool() == 0){
+            coollist.add(input);
+        }
+        else{
+            icelist.add(input);
+        }
+        Toast.makeText(getApplicationContext(), " 재료가 추가 되었습니다 !", Toast.LENGTH_SHORT).show();
     }
 
 }

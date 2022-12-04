@@ -54,6 +54,8 @@ public class CoolFragment extends Fragment {
             ImageView imageView2 = arg1.findViewById(R.id.gridlight);
             imageview.setPadding(5,5,5,5);
 
+            //이부분에서 if 처리
+
             textView.setText(foodArrayList.get(position).getName());
 
             imageview.setImageResource(foodArrayList.get(position).getImage());
