@@ -11,9 +11,10 @@
         android:background="#F8F8F8"
         android:orientation="horizontal" >
 
-        <Button
+        <android.widget.Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="알림"
             android:background="@drawable/button_blue"
             android:id="@+id/alertname" />
@@ -27,6 +28,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="푸쉬알림 기준(남은 유통기한)" />
 
             <LinearLayout
@@ -34,33 +36,42 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
-                <Button
+                <android.widget.Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/btn1day"
-                    android:background="@drawable/button"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_mini"
                     android:text="1일" />
 
-                <Button
+                <android.widget.Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/btn3day"
-                    android:background="@drawable/button"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+
+                    android:background="@drawable/button_mini"
                     android:text="3일" />
 
-                <Button
+                <android.widget.Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/btn5day"
-                    android:background="@drawable/button"
-                    android:text="5일" />
+                    android:layout_weight="1"
+                    android:background="@drawable/button_mini"
+                    android:text="5일"
+                    android:layout_margin="8dp" />
 
-                <Button
+                <android.widget.Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/btn7day"
-                    android:background="@drawable/button"
-                    android:text="1주일" />
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/button_mini"
+                    android:text="1주" />
 
             </LinearLayout>
 
@@ -81,29 +92,43 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="푸쉬알림 on/off" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal" >
 
-            <Button
+            <android.widget.Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button"
+                android:background="@drawable/button_mini"
                 android:id="@+id/btnon"
+                android:layout_margin="8dp"
+
                 android:text="on" />
 
-            <Button
+            <android.widget.Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnoff"
-                android:background="@drawable/button"
+                android:layout_margin="8dp"
+
+                android:background="@drawable/button_mini"
                 android:text="off" />
 
 
         </LinearLayout>
+
+        <android.widget.Button
+            android:id="@+id/btnhelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_blue"
+            android:text="도움말" />
 
     </LinearLayout>
 
@@ -112,13 +137,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnhelp"
-            android:background="@drawable/button_blue"
-            android:text="도움말" />
 
     </LinearLayout>
 

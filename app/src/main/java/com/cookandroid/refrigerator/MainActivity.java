@@ -1,5 +1,6 @@
 package com.cookandroid.refrigerator;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -10,11 +11,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,11 +45,13 @@ import kotlin.jvm.internal.Intrinsics;
  */
 public class MainActivity extends AppCompatActivity implements FoodPlus.FragmentPlusListener{
 
+    LinearLayout layout;
     ImageButton btnRecipy;
     ImageButton btnMerge;
-    Switch btnIce;                               //레시피 , 냉장버튼
-    Button btnplusa;
-    Button btnSetting;
+    ImageButton btnHome;
+    ImageButton btnIce;                               //레시피 , 냉장버튼
+    ImageButton btnplusa;
+    ImageButton btnSetting;
     TextView merge;
     TextView cool;
     int isItDDay = 0;                    //0 기본, 1 유통기한,2 입고날짜
@@ -710,12 +715,14 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
         setContentView(R.layout.activity_main);
 
         btnRecipy = (ImageButton)findViewById(R.id.btnRecipy);
-        btnIce = (Switch) findViewById(R.id.btnIce);
+        btnIce = (ImageButton) findViewById(R.id.btnIce);
         btnMerge = (ImageButton)findViewById(R.id.btnMerge);
-        btnplusa = (Button)findViewById(R.id.btnplus);
-        btnSetting = (Button)findViewById(R.id.btnsetting);
-        cool = (TextView)findViewById(R.id.textice);
-        merge = (TextView)findViewById(R.id.textmerge);
+        btnplusa = (ImageButton) findViewById(R.id.btnplus);
+        btnSetting = (ImageButton) findViewById(R.id.btnsetting);
+        btnHome = (ImageButton) findViewById(R.id.btnHome);
+        layout = (LinearLayout) findViewById(R.id.layout_tool);
+
+
 
         IceFragment fragice = new IceFragment();
         CoolFragment fragcool = new CoolFragment();
@@ -761,6 +768,7 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
         recipylist.add(rabokki); recipylist.add(padthai); recipylist.add(kebob);
         //sendlist = (ArrayList<RecipyInfo>) findRecipe(recipylist, foodlist).clone();
 
+        alertfoodlist.clear();
         for(int i = 0; i < foodlist.size(); i++){
             if(foodlist.get(i).getExpiration_dday() <= 3){
                 alertfoodlist.add(foodlist.get(i));
@@ -781,11 +789,32 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
         if(notifyExpirationDate(foodlist)){
             btnunion.setImageResource(R.drawable.union);
         }
-
          */
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                layout.setVisibility(View.VISIBLE);
+                ButtonInit();
+                btnHome.setImageResource(R.drawable.home_on);
+                CoolFragment fragCool = new CoolFragment();
+                Bundle data = new Bundle();
+                data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) coollist);
+                fragCool.setArguments(data);
+
+                FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction2.replace(R.id.frame_layout, fragCool);
+                fragmentTransaction2.commit();
+            }
+        });
+
+
         btnplusa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                layout.setVisibility(View.GONE);
+                ButtonInit();
+                btnplusa.setImageResource(R.drawable.foodplus_un);
                 Intent intent = new Intent(getApplicationContext(), FoodPlus.class);
                 FoodPlus foodPlus = new FoodPlus();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -798,6 +827,9 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
         btnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                layout.setVisibility(View.GONE);
+                ButtonInit();
+                btnSetting.setImageResource(R.drawable.setting_on);
                 Setting setting = new Setting();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frame_layout, setting);
@@ -811,6 +843,16 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
         btnRecipy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                layout.setVisibility(View.GONE);
+                ButtonInit();
+                btnRecipy.setImageResource(R.drawable.recipy_on);
+                alertfoodlist.clear();
+                for(int i = 0; i < foodlist.size(); i++){
+                    if(foodlist.get(i).getExpiration_dday() <= 3){
+                        alertfoodlist.add(foodlist.get(i));
+                    }
+                }
+
                 sendlist = (ArrayList<RecipyInfo>) findRecipe(recipylist, foodlist).clone();
                 alertlist = (ArrayList<RecipyInfo>) findRecipe(recipylist, alertfoodlist).clone();
 
@@ -825,6 +867,7 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
 
         //냉장버튼 기능 구현
 
+        btnHome.setImageResource(R.drawable.home_on);
 
         CoolFragment fragCool = new CoolFragment();
         Bundle data = new Bundle();
@@ -836,14 +879,13 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
         fragmentTransaction2.commit();
 
 
-        btnIce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btnIce.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    //냉동
+            public void onClick(View view) {
+                if(isItIce == 0){
                     isItIce = 1;
-                    cool.setText("냉동");
-                    merge.setText("기본");
+                    btnIce.setImageResource(R.drawable.iceout);
+                    btnMerge.setImageResource(R.drawable.mergename);
                     Bundle data = new Bundle();
                     data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) icelist);
 
@@ -854,11 +896,10 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
                     fragmentTransaction1.replace(R.id.frame_layout, fragIce);
                     fragmentTransaction1.commit();
                 }
-                else{
-                    //냉장
-                    cool.setText("냉장");
-                    merge.setText("기본");
+                else if(isItIce == 1){
                     isItIce = 0;
+                    btnIce.setImageResource(R.drawable.coolout);
+                    btnMerge.setImageResource(R.drawable.mergename);
                     Bundle data = new Bundle();
                     data.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) coollist);
 
@@ -871,15 +912,14 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
                 }
             }
         });
-
         //btn merge
         btnMerge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isItDDay == 0){ // basic out
+                if(isItDDay == 0){ // basic out <- change name sort
+                    btnMerge.setImageResource(R.drawable.mergeexp);
                     isItDDay = 1;
 
-                    merge.setText("유통기한");
 
                     //setText "유통기한
                     foodlistDDaySort.clear();
@@ -917,8 +957,8 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
                 }
                 else if(isItDDay == 1) {
                     //입고 정렬
-                    merge.setText("입고");
                     isItDDay = 2;
+                    btnMerge.setImageResource(R.drawable.mergeinput);
 
                     foodlistDateSort.clear();
                     if(isItIce == 0){
@@ -957,8 +997,8 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
                 else{  //  date out
                     isItDDay = 1;
 
-                    merge.setText("유통기한");
                     //setText 유통기한
+                    btnMerge.setImageResource(R.drawable.mergeexp);
                     foodlistDDaySort.clear();
                     if(isItIce == 0){
                         foodlistDDaySort = (ArrayList<Food>)coollist.clone();
@@ -1219,4 +1259,123 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
         Toast.makeText(getApplicationContext(), " 재료가 추가 되었습니다 !", Toast.LENGTH_SHORT).show();
     }
 
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 4) {
+            int point = data.getIntExtra("Point", 0);
+            coollist.remove(point);
+            foodlist = (ArrayList<Food>) coollist.clone();
+            for(int i = 0; i < icelist.size(); i++){
+                foodlist.add(icelist.get(i));
+            }
+
+            CoolFragment fragCool = new CoolFragment();
+            Bundle data2 = new Bundle();
+            data2.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) coollist);
+            fragCool.setArguments(data2);
+
+            FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction2.replace(R.id.frame_layout, fragCool);
+            fragmentTransaction2.commit();
+        }
+        else if(resultCode == 5){
+            int point = data.getIntExtra("Point", 0);
+            icelist.remove(point);
+            foodlist = (ArrayList<Food>) icelist.clone();
+            for(int i = 0; i < coollist.size(); i++){
+                foodlist.add(coollist.get(i));
+            }
+
+            IceFragment iceFragment = new IceFragment();
+            Bundle data22 = new Bundle();
+            data22.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) icelist);
+            IceFragment fragIce = new IceFragment();
+            fragIce.setArguments(data22);
+
+            FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction1.replace(R.id.frame_layout, fragIce);
+            fragmentTransaction1.commit();
+        }
+        else{
+
+        }
+    }
+    public void ButtonInit(){
+        btnHome.setImageResource(R.drawable.home_un);
+        btnSetting.setImageResource(R.drawable.setting_un);
+        btnplusa.setImageResource(R.drawable.foodplus_on);
+        btnRecipy.setImageResource(R.drawable.recipy_un);
+    }
+    /*
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 0) {
+            int point = data.getIntExtra("Point", 0);
+            coollist.remove(point);
+            foodlist = (ArrayList<Food>) coollist.clone();
+            for(int i = 0; i < icelist.size(); i++){
+                foodlist.add(icelist.get(i));
+            }
+
+            CoolFragment fragCool = new CoolFragment();
+            Bundle data2 = new Bundle();
+
+
+            foodlistDDaySort.clear();
+            foodlistDDaySort = (ArrayList<Food>)coollist.clone();
+            if(isItDDay == 1){
+                mergeSort(foodlistDDaySort,0,foodlistDateSort.size()-1);
+
+            }
+            else if(isItDDay == 2){
+                StringmergeSort(foodlistDateSort,0,foodlistDateSort.size()-1);
+
+            }
+            else{
+            }
+
+            data2.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) foodlistDateSort);
+            fragCool.setArguments(data2);
+
+            FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction2.replace(R.id.frame_layout, fragCool);
+            fragmentTransaction2.commit();
+        }
+        else{
+            int point = data.getIntExtra("Point", 0);
+            icelist.remove(point);
+            foodlist = (ArrayList<Food>) icelist.clone();
+            for(int i = 0; i < coollist.size(); i++){
+                foodlist.add(coollist.get(i));
+            }
+
+            IceFragment iceFragment = new IceFragment();
+            Bundle data22 = new Bundle();
+
+            foodlistDDaySort.clear();
+            foodlistDDaySort = (ArrayList<Food>)icelist.clone();
+            if(isItDDay == 1){
+                mergeSort(foodlistDDaySort,0,foodlistDateSort.size()-1);
+
+            }
+            else if(isItDDay == 2){
+                StringmergeSort(foodlistDateSort,0,foodlistDateSort.size()-1);
+
+            }
+            else{
+            }
+
+            data22.putParcelableArrayList("Food", (ArrayList<? extends Parcelable>) foodlistDateSort);
+            IceFragment fragIce = new IceFragment();
+            fragIce.setArguments(data22);
+
+            FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction1.replace(R.id.frame_layout, fragIce);
+            fragmentTransaction1.commit();
+        }
+    }
+     */
 }

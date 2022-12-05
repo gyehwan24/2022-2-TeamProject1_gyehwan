@@ -82,7 +82,9 @@ public class IceFragment extends Fragment {
                     intent.putExtra("Date", foodArrayList.get(position).getExpiration_date());
                     intent.putExtra("Storagy", foodArrayList.get(position).getStorage());
                     intent.putExtra("Point", position);
-                    startActivity(intent);
+                    intent.putExtra("Indate", foodArrayList.get(position).getInput_date());
+                    intent.putExtra("Cool", foodArrayList.get(position).getCool());
+                    startActivityForResult(intent, 0);
                 }
             });
 

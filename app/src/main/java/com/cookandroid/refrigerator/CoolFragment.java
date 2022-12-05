@@ -83,7 +83,9 @@ public class CoolFragment extends Fragment {
                     intent.putExtra("Storagy", foodArrayList.get(position).getStorage());
                     intent.putExtra("Data", foodArrayList.get(position).getInput_date());
                     intent.putExtra("Point", position);
-                    startActivity(intent);
+                    intent.putExtra("Indate", foodArrayList.get(position).getInput_date());
+                    intent.putExtra("Cool", foodArrayList.get(position).getCool());
+                    startActivityForResult(intent, 0);
                 }
             });
 

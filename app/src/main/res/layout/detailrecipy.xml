@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
+        android:gravity="center"
         android:background="@drawable/line" >
 
         <TextView
@@ -54,9 +55,20 @@
         android:background="@drawable/line">
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:id="@+id/recipy_need"
-            android:text="재료 "
+            android:text="필수재료 "
+            android:gravity="center"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/recipy_add"
+            android:gravity="center"
+            android:text="추가재료 "
             android:layout_margin="8dp"/>
     </LinearLayout>
 

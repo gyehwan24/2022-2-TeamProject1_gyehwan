@@ -14,12 +14,13 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 
 public class DetailRecipy extends Activity {
 
-    TextView recipy_name, recipy_need, recipy_recipy;
+    TextView recipy_name, recipy_need,recipy_add, recipy_recipy;
     ImageView recipy_image;
     ImageView recipy_video;
     String name;
     String summary;
     String need;
+    String more;
     String recipy;
     String video;
     int image;
@@ -37,7 +38,7 @@ public class DetailRecipy extends Activity {
         recipy_need = (TextView)findViewById(R.id.recipy_need);
         recipy_recipy = (TextView)findViewById(R.id.recipy_recipy);
         recipy_video = (ImageView) findViewById(R.id.recipy_video);
-
+        recipy_add = (TextView)findViewById(R.id.recipy_add);
         Intent rxIntent = getIntent();
         Bundle extras = rxIntent.getExtras();
         RecipyInfo recipyInfo;
@@ -57,19 +58,19 @@ public class DetailRecipy extends Activity {
         name = recipyInfo.getName() ;
         recipy = recipyInfo.getDesc();
         image = recipyInfo.getPicture();
-        need = "필수 재료 : ";
+        need = "필수 재료"+"\n";
         size = recipyInfo.getEssentialIngredients().size()-1;
         i = 0;
         while( i < size){
             need = need + recipyInfo.getEssentialIngredients().get(i)+", ";
             i++;
         }
-        need = need + recipyInfo.getEssentialIngredients().get(i)+"\n\n";
-        need = need + "추가 재료 : ";
+        need = need + recipyInfo.getEssentialIngredients().get(i);
+        more = "추가 재료"+"\n";
         size = recipyInfo.getAdditionalIngredients().size()-1;
         i = 0;
         while( i < size ){
-            need = need + recipyInfo.additionalIngredients.get(i)+", ";
+            more = more + recipyInfo.additionalIngredients.get(i)+", ";
             i++;
         }
         need = need + recipyInfo.getAdditionalIngredients().get(i);
@@ -77,6 +78,7 @@ public class DetailRecipy extends Activity {
         recipy_name.setText(name);
         recipy_recipy.setText(recipy);
         recipy_need.setText(need);
+        recipy_add.setText(more);
         recipy_image.setImageResource(image);
         recipy_video.setImageResource(R.drawable.youtube);
 

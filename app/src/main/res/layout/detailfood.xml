@@ -6,6 +6,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:gravity="right"
+        android:layout_weight="1" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnfoodsub"
+            android:text="재료삭제"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_blue" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:background="@drawable/line"
         android:layout_weight="3" >
 
@@ -34,7 +52,7 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="25dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:layout_marginLeft="8dp"
             android:text="food_name" />
     </LinearLayout>
@@ -43,16 +61,28 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/line"
-        android:layout_weight="1" >
+        android:orientation="horizontal"
+        android:layout_weight="2" >
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:id="@+id/food_date"
             android:layout_margin="8dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:textColor="@color/black"
             android:text="유통기한" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="입고날짜"
+            android:id="@+id/food_indate" />
 
 
     </LinearLayout>
@@ -60,7 +90,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5" >
+        android:layout_weight="3" >
 
         <TextView
             android:layout_width="match_parent"

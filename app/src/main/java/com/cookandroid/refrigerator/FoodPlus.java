@@ -20,10 +20,11 @@ import androidx.fragment.app.Fragment;
 public class FoodPlus extends Fragment {
 
     EditText edtname, edtessyear, edtessmonth, edtessday, edtinpyear, edtinpmonth, edtinpday;
-    Button btnadd;
+    Button btnadd, btncool, btnice, btnusual;
     String inputdate = "";
     String expdate = "";
     String name = "";
+    int cool = 0;
     FragmentPlusListener listener;
 
     @Override
@@ -55,6 +56,11 @@ public class FoodPlus extends Fragment {
         edtinpmonth = v.findViewById(R.id.edtinmonth);
         edtinpday = v.findViewById(R.id.edtinday);
         btnadd = v.findViewById(R.id.btnadd);
+        btncool = v.findViewById(R.id.btnpluscool);
+        btnice = v.findViewById(R.id.btnplusice);
+        btnusual = v.findViewById(R.id.btnplususual);
+
+        btncool.setBackgroundResource(R.drawable.button_rec_select);
 
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,10 +70,37 @@ public class FoodPlus extends Fragment {
                 expdate = edtessyear.getText() +"-"+edtessmonth.getText() +"-" + edtessday.getText();
 
                 //food 생성 후 activity 에 전송
-                Food food = new Food(name, expdate, inputdate, 0, "보관법", R.drawable.apple);
+                Food food = new Food(name, expdate, inputdate, cool, "보관법", R.drawable.apple);
                 listener.onInputSend(food);
 
                 //finish(); <- 액티비티 종료
+            }
+        });
+
+        btncool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buttonColorInit();
+                btncool.setBackgroundResource(R.drawable.button_rec_select);
+                cool = 0;
+            }
+        });
+
+        btnice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buttonColorInit();
+                btnice.setBackgroundResource(R.drawable.button_rec_select);
+                cool = 1;
+            }
+        });
+
+        btnusual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buttonColorInit();
+                btnusual.setBackgroundResource(R.drawable.button_rec_select);
+                cool = 2;
             }
         });
 
@@ -86,6 +119,13 @@ public class FoodPlus extends Fragment {
          */
 
         return v;
+    }
+
+    public void buttonColorInit(){
+        btncool.setBackgroundResource(R.drawable.button_rec);
+        btnice.setBackgroundResource(R.drawable.button_rec);
+        btnusual.setBackgroundResource(R.drawable.button_rec);
+
     }
 
     public interface FragmentPlusListener{

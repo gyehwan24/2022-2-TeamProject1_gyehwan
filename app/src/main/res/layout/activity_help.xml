@@ -20,28 +20,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
-                android:src="@drawable/apple" />
+                android:src="@drawable/help1" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
                 android:id="@+id/helpimage2"
-                android:src="@drawable/apple" />
+                android:src="@drawable/help2" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/helpimage3"
                 android:scaleType="fitXY"
-                android:src="@drawable/apple" />
+                android:src="@drawable/help3" />
 
             <ImageView
                 android:id="@+id/helpimage4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
-                android:src="@drawable/apple" />
+                android:src="@drawable/help4" />
 
 
         </LinearLayout>
@@ -53,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnSkip"
-        android:text="건너뛰기" />
+        android:text="닫기" />
 
 
 </LinearLayout>
