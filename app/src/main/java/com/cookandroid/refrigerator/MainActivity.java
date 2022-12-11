@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
     int isItIce = 0;            //0 냉장, 1 냉동
 
     //data list
-    ArrayList<Food> foodlist = new ArrayList<>();           // food list
+    static ArrayList<Food> foodlist = new ArrayList<>();           // food list
     ArrayList<RecipyInfo> recipylist = new ArrayList<>();   // recipy list
     ArrayList<RecipyInfo> sendlist = new ArrayList<>();     //recipy send  (total -> can)
     ArrayList<RecipyInfo> alertlist = new ArrayList<>();
@@ -711,8 +712,14 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent fcm = new Intent(getApplicationContext(), MyFirebaseMessagingService.class);
+        startService(fcm);
+
+
 
         btnRecipy = (ImageButton)findViewById(R.id.btnRecipy);
         btnIce = (ImageButton) findViewById(R.id.btnIce);
@@ -1307,6 +1314,10 @@ public class MainActivity extends AppCompatActivity implements FoodPlus.Fragment
         btnSetting.setImageResource(R.drawable.setting_un);
         btnplusa.setImageResource(R.drawable.foodplus_on);
         btnRecipy.setImageResource(R.drawable.recipy_un);
+    }
+
+    public ArrayList<Food> getFoodList(){
+        return foodlist;
     }
     /*
     @Override

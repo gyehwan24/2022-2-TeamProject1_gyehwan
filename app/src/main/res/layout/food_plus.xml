@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnadd"
             android:text="재료 추가하기"
-            android:textSize="20dp" ></Button>
+            android:textSize="20dp" />
 
     </LinearLayout>
 
