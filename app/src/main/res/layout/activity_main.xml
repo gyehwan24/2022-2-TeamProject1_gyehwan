@@ -5,45 +5,116 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="8"
     tools:context=".MainActivity">
+
+
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/line"
-        android:padding="20dp">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnRecipy"
-            android:text="레시피">
-
-        </Button>
-
-        <Button
-            android:id="@+id/btnIce"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="냉장 | 냉동">
-
-        </Button>
-
-    </LinearLayout>
-
-    <ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
         android:orientation="vertical">
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_tool"
+            android:orientation="horizontal"
+            android:background="#F8F8F8">
+
+            <ImageButton
+                android:id="@+id/btnMerge"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                android:background="#F8F8F8"
+                android:src="@drawable/mergename" />
+
+            <ImageButton
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="100dp"
+                android:background="#F8F8F8"
+                android:src="@drawable/coolout"
+                android:id="@+id/btnIce" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
 
         </FrameLayout>
 
-    </ScrollView>
+    </LinearLayout>
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/btnRecipy"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="20dp"
+            android:background="#FFFFFF"
+            android:padding="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/recipy_un">
+
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="148dp"
+            android:layout_marginBottom="18dp"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            android:src="@drawable/home_un" />
+
+        <ImageButton
+            android:id="@+id/btnplus"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="31dp"
+            android:layout_marginBottom="20dp"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            android:src="@drawable/foodplus_on" />
+
+        <ImageButton
+            android:id="@+id/btnsetting"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="114dp"
+            android:layout_marginTop="23dp"
+            android:background="#FFFFFF"
+            android:scaleType="fitXY"
+            android:src="@drawable/setting_un" />
+    </RelativeLayout>
 
 </LinearLayout>
